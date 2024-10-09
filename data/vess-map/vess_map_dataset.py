@@ -112,15 +112,16 @@ class VessMapDataset(Dataset):
 
 
     def vess_map_dataloader(
-        image_dir, mask_dir, skeleton_dir, batch_size, train_size, image_size, shuffle=True
+        self, batch_size, train_size, shuffle=True
     ):
-        dataset = VessMapDataset(image_dir, mask_dir, skeleton_dir, image_size)
-        dataset_size = len(dataset)
+        dataset_size = len(self)
         train_len = int(train_size * dataset_size)
         val_len = dataset_size - train_len
 
-        train_dataset, test_dataset = random_split(dataset, [train_len, val_len])
+        # Split the current dataset into train and validation/test datasets
+        train_dataset, test_dataset = random_split(self, [train_len, val_len])
 
+        # Create DataLoaders for train and test datasets
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=shuffle)
         test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
