@@ -1,0 +1,117 @@
+[
+    {
+        "level": "INFO",
+        "message": "Preparing dataset...",
+        "time": "2025-01-20T11:32:57.524131"
+    },
+    {
+        "level": "INFO",
+        "message": "Creating UNet with ResNet-50 encoder...",
+        "time": "2025-01-20T11:32:57.598874"
+    },
+    {
+        "level": "INFO",
+        "message": "Training parameters:",
+        "time": "2025-01-20T11:32:57.954893"
+    },
+    {
+        "level": "INFO",
+        "message": " - lr: 0.001",
+        "time": "2025-01-20T11:32:57.954928"
+    },
+    {
+        "level": "INFO",
+        "message": " - batch_size: 80",
+        "time": "2025-01-20T11:32:57.954942"
+    },
+    {
+        "level": "INFO",
+        "message": " - epochs: 2",
+        "time": "2025-01-20T11:32:57.954955"
+    },
+    {
+        "level": "INFO",
+        "message": " - optimizer: adam",
+        "time": "2025-01-20T11:32:57.954965"
+    },
+    {
+        "level": "INFO",
+        "message": " - loss_type: both",
+        "time": "2025-01-20T11:32:57.954976"
+    },
+    {
+        "level": "INFO",
+        "message": " - scheduler: none",
+        "time": "2025-01-20T11:32:57.954985"
+    },
+    {
+        "level": "INFO",
+        "message": " - train_size: 80",
+        "time": "2025-01-20T11:32:57.954995"
+    },
+    {
+        "level": "INFO",
+        "message": " - image_size: 256",
+        "time": "2025-01-20T11:32:57.955004"
+    },
+    {
+        "level": "INFO",
+        "message": " - accumulate_grad_steps: 1",
+        "time": "2025-01-20T11:32:57.955014"
+    },
+    {
+        "level": "INFO",
+        "message": " - image_dir: ../data/vess-map/images",
+        "time": "2025-01-20T11:32:57.955024"
+    },
+    {
+        "level": "INFO",
+        "message": " - mask_dir: ../data/vess-map/labels",
+        "time": "2025-01-20T11:32:57.955033"
+    },
+    {
+        "level": "INFO",
+        "message": " - skeleton_dir: ../data/vess-map/skeletons",
+        "time": "2025-01-20T11:32:57.955043"
+    },
+    {
+        "level": "INFO",
+        "message": " - augment: True",
+        "time": "2025-01-20T11:32:57.955053"
+    },
+    {
+        "level": "INFO",
+        "message": "Starting epoch 1/2",
+        "time": "2025-01-20T11:32:57.955076"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 01, Train Loss: 1.6542, Val Loss: 1.7279, Val IoU: 0.0219",
+        "time": "2025-01-20T11:32:58.714656"
+    },
+    {
+        "level": "INFO",
+        "message": "Best model saved at epoch 1 with val_loss 1.7279",
+        "time": "2025-01-20T11:32:58.898032"
+    },
+    {
+        "level": "INFO",
+        "message": "Starting epoch 2/2",
+        "time": "2025-01-20T11:32:59.067888"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 02, Train Loss: 1.3747, Val Loss: 1.8859, Val IoU: 0.0109",
+        "time": "2025-01-20T11:32:59.709024"
+    },
+    {
+        "level": "INFO",
+        "message": "Metrics saved to ./u-net/metrics/unet_resnet50_adam_lr0.001_bs80_both_80pct_20012025_metrics.json",
+        "time": "2025-01-20T11:32:59.863687"
+    },
+    {
+        "level": "INFO",
+        "message": "Plot saved to ./u-net/metrics/unet_resnet50_adam_lr0.001_bs80_both_80pct_20012025_training_validation_metrics.png",
+        "time": "2025-01-20T11:32:59.940372"
+    }
+]

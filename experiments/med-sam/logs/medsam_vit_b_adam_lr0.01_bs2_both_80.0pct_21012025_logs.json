@@ -1,0 +1,5132 @@
+[
+    {
+        "level": "INFO",
+        "message": "Using device: cuda",
+        "time": "2025-01-21T19:31:11.643830"
+    },
+    {
+        "level": "INFO",
+        "message": "Preparing dataset... (same code as original script)",
+        "time": "2025-01-21T19:31:11.643868"
+    },
+    {
+        "level": "INFO",
+        "message": "Initializing Fabric...",
+        "time": "2025-01-21T19:31:11.719478"
+    },
+    {
+        "level": "INFO",
+        "message": "Loading base SAM model checkpoint (ViT-B)...",
+        "time": "2025-01-21T19:31:11.721424"
+    },
+    {
+        "level": "INFO",
+        "message": "Training parameters:",
+        "time": "2025-01-21T19:31:11.947829"
+    },
+    {
+        "level": "INFO",
+        "message": " - lr: 0.01",
+        "time": "2025-01-21T19:31:11.947856"
+    },
+    {
+        "level": "INFO",
+        "message": " - batch_size: 2",
+        "time": "2025-01-21T19:31:11.947869"
+    },
+    {
+        "level": "INFO",
+        "message": " - epochs: 500",
+        "time": "2025-01-21T19:31:11.947882"
+    },
+    {
+        "level": "INFO",
+        "message": " - optimizer: adam",
+        "time": "2025-01-21T19:31:11.947892"
+    },
+    {
+        "level": "INFO",
+        "message": " - loss_type: both",
+        "time": "2025-01-21T19:31:11.947902"
+    },
+    {
+        "level": "INFO",
+        "message": " - scheduler: cosine",
+        "time": "2025-01-21T19:31:11.947911"
+    },
+    {
+        "level": "INFO",
+        "message": " - train_size: 80.0",
+        "time": "2025-01-21T19:31:11.947921"
+    },
+    {
+        "level": "INFO",
+        "message": " - accumulate_grad_steps: 1",
+        "time": "2025-01-21T19:31:11.947930"
+    },
+    {
+        "level": "INFO",
+        "message": " - image_dir: ../data/vess-map/images",
+        "time": "2025-01-21T19:31:11.947939"
+    },
+    {
+        "level": "INFO",
+        "message": " - mask_dir: ../data/vess-map/labels",
+        "time": "2025-01-21T19:31:11.947949"
+    },
+    {
+        "level": "INFO",
+        "message": " - skeleton_dir: ../data/vess-map/skeletons",
+        "time": "2025-01-21T19:31:11.947958"
+    },
+    {
+        "level": "INFO",
+        "message": " - precision: 32-true",
+        "time": "2025-01-21T19:31:11.947967"
+    },
+    {
+        "level": "INFO",
+        "message": " - augment: True",
+        "time": "2025-01-21T19:31:11.947978"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 1/500",
+        "time": "2025-01-21T19:31:11.947999"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 1, TrainLoss=2.2444, ValLoss=1.5034, ValIoU=0.0000",
+        "time": "2025-01-21T19:31:38.573790"
+    },
+    {
+        "level": "INFO",
+        "message": "Best model saved at epoch 1 with val_loss 1.5034",
+        "time": "2025-01-21T19:31:39.166794"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 2/500",
+        "time": "2025-01-21T19:31:39.684098"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 2, TrainLoss=1.5098, ValLoss=1.5052, ValIoU=0.0000",
+        "time": "2025-01-21T19:32:06.167669"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 3/500",
+        "time": "2025-01-21T19:32:06.775327"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 3, TrainLoss=1.5046, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T19:32:33.255494"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 4/500",
+        "time": "2025-01-21T19:32:33.864865"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 4, TrainLoss=1.5058, ValLoss=1.5003, ValIoU=0.0000",
+        "time": "2025-01-21T19:33:00.335903"
+    },
+    {
+        "level": "INFO",
+        "message": "Best model saved at epoch 4 with val_loss 1.5003",
+        "time": "2025-01-21T19:33:00.935929"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 5/500",
+        "time": "2025-01-21T19:33:01.700726"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 5, TrainLoss=1.5075, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T19:33:28.190848"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 6/500",
+        "time": "2025-01-21T19:33:28.802444"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 6, TrainLoss=1.5084, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T19:33:55.292577"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 7/500",
+        "time": "2025-01-21T19:33:55.886340"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 7, TrainLoss=1.5038, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T19:34:22.380452"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 8/500",
+        "time": "2025-01-21T19:34:22.966074"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 8, TrainLoss=1.5040, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T19:34:49.458539"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 9/500",
+        "time": "2025-01-21T19:34:50.063667"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 9, TrainLoss=1.5048, ValLoss=1.5020, ValIoU=0.0000",
+        "time": "2025-01-21T19:35:16.554972"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 10/500",
+        "time": "2025-01-21T19:35:17.168773"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 10, TrainLoss=1.5048, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T19:35:43.676838"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 11/500",
+        "time": "2025-01-21T19:35:44.287637"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 11, TrainLoss=1.5036, ValLoss=1.5005, ValIoU=0.0000",
+        "time": "2025-01-21T19:36:10.780293"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 12/500",
+        "time": "2025-01-21T19:36:11.393104"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 12, TrainLoss=1.5037, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T19:36:37.878934"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 13/500",
+        "time": "2025-01-21T19:36:38.497036"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 13, TrainLoss=1.5064, ValLoss=1.5001, ValIoU=0.0000",
+        "time": "2025-01-21T19:37:04.994627"
+    },
+    {
+        "level": "INFO",
+        "message": "Best model saved at epoch 13 with val_loss 1.5001",
+        "time": "2025-01-21T19:37:05.602759"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 14/500",
+        "time": "2025-01-21T19:37:06.134094"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 14, TrainLoss=1.5052, ValLoss=1.5048, ValIoU=0.0000",
+        "time": "2025-01-21T19:37:32.613060"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 15/500",
+        "time": "2025-01-21T19:37:33.222206"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 15, TrainLoss=1.5026, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T19:37:59.711455"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 16/500",
+        "time": "2025-01-21T19:38:00.318893"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 16, TrainLoss=1.5033, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T19:38:26.801885"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 17/500",
+        "time": "2025-01-21T19:38:27.416596"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 17, TrainLoss=1.5035, ValLoss=1.5056, ValIoU=0.0000",
+        "time": "2025-01-21T19:38:53.913484"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 18/500",
+        "time": "2025-01-21T19:38:54.512128"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 18, TrainLoss=1.5054, ValLoss=1.5020, ValIoU=0.0000",
+        "time": "2025-01-21T19:39:21.002528"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 19/500",
+        "time": "2025-01-21T19:39:21.613553"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 19, TrainLoss=1.5047, ValLoss=1.4990, ValIoU=0.0000",
+        "time": "2025-01-21T19:39:48.120778"
+    },
+    {
+        "level": "INFO",
+        "message": "Best model saved at epoch 19 with val_loss 1.4990",
+        "time": "2025-01-21T19:39:48.732218"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 20/500",
+        "time": "2025-01-21T19:39:49.270053"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 20, TrainLoss=1.5071, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T19:40:15.750802"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 21/500",
+        "time": "2025-01-21T19:40:16.363191"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 21, TrainLoss=1.5052, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T19:40:42.848744"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 22/500",
+        "time": "2025-01-21T19:40:43.453081"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 22, TrainLoss=1.5060, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T19:41:09.960300"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 23/500",
+        "time": "2025-01-21T19:41:10.554328"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 23, TrainLoss=1.5064, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T19:41:37.059869"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 24/500",
+        "time": "2025-01-21T19:41:37.671061"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 24, TrainLoss=1.5061, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T19:42:04.186991"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 25/500",
+        "time": "2025-01-21T19:42:04.793059"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 25, TrainLoss=1.5059, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T19:42:31.299857"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 26/500",
+        "time": "2025-01-21T19:42:31.917926"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 26, TrainLoss=1.5046, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T19:42:58.439157"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 27/500",
+        "time": "2025-01-21T19:42:59.039704"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 27, TrainLoss=1.5073, ValLoss=1.5034, ValIoU=0.0000",
+        "time": "2025-01-21T19:43:25.553298"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 28/500",
+        "time": "2025-01-21T19:43:26.156487"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 28, TrainLoss=1.5037, ValLoss=1.5041, ValIoU=0.0000",
+        "time": "2025-01-21T19:43:52.649428"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 29/500",
+        "time": "2025-01-21T19:43:53.268505"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 29, TrainLoss=1.5039, ValLoss=1.5039, ValIoU=0.0000",
+        "time": "2025-01-21T19:44:19.772197"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 30/500",
+        "time": "2025-01-21T19:44:20.377411"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 30, TrainLoss=1.5040, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T19:44:46.879153"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 31/500",
+        "time": "2025-01-21T19:44:47.504371"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 31, TrainLoss=1.5054, ValLoss=1.5049, ValIoU=0.0000",
+        "time": "2025-01-21T19:45:14.007181"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 32/500",
+        "time": "2025-01-21T19:45:14.615390"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 32, TrainLoss=1.5033, ValLoss=1.5019, ValIoU=0.0000",
+        "time": "2025-01-21T19:45:41.108423"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 33/500",
+        "time": "2025-01-21T19:45:41.713468"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 33, TrainLoss=1.5062, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T19:46:08.208503"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 34/500",
+        "time": "2025-01-21T19:46:08.820211"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 34, TrainLoss=1.5054, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T19:46:35.289468"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 35/500",
+        "time": "2025-01-21T19:46:35.876741"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 35, TrainLoss=1.5063, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T19:47:02.345672"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 36/500",
+        "time": "2025-01-21T19:47:02.960213"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 36, TrainLoss=1.5036, ValLoss=1.5051, ValIoU=0.0000",
+        "time": "2025-01-21T19:47:29.441630"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 37/500",
+        "time": "2025-01-21T19:47:30.060429"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 37, TrainLoss=1.5032, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T19:47:56.569401"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 38/500",
+        "time": "2025-01-21T19:47:57.184810"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 38, TrainLoss=1.5067, ValLoss=1.5067, ValIoU=0.0000",
+        "time": "2025-01-21T19:48:23.645276"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 39/500",
+        "time": "2025-01-21T19:48:24.256372"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 39, TrainLoss=1.5072, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T19:48:50.733762"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 40/500",
+        "time": "2025-01-21T19:48:51.338412"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 40, TrainLoss=1.5055, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T19:49:17.866035"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 41/500",
+        "time": "2025-01-21T19:49:18.675013"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 41, TrainLoss=1.5048, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T19:49:45.186870"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 42/500",
+        "time": "2025-01-21T19:49:45.802917"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 42, TrainLoss=1.5056, ValLoss=1.5003, ValIoU=0.0000",
+        "time": "2025-01-21T19:50:12.288813"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 43/500",
+        "time": "2025-01-21T19:50:12.877662"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 43, TrainLoss=1.5048, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T19:50:39.350909"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 44/500",
+        "time": "2025-01-21T19:50:39.958430"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 44, TrainLoss=1.5058, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T19:51:06.415078"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 45/500",
+        "time": "2025-01-21T19:51:07.006123"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 45, TrainLoss=1.5053, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T19:51:33.501519"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 46/500",
+        "time": "2025-01-21T19:51:34.109849"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 46, TrainLoss=1.5053, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T19:52:00.597458"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 47/500",
+        "time": "2025-01-21T19:52:01.418042"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 47, TrainLoss=1.5052, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T19:52:27.897831"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 48/500",
+        "time": "2025-01-21T19:52:28.502078"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 48, TrainLoss=1.5043, ValLoss=1.5018, ValIoU=0.0000",
+        "time": "2025-01-21T19:52:54.985169"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 49/500",
+        "time": "2025-01-21T19:52:55.597992"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 49, TrainLoss=1.5046, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T19:53:22.069523"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 50/500",
+        "time": "2025-01-21T19:53:22.672672"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 50, TrainLoss=1.5068, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T19:53:49.132016"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 51/500",
+        "time": "2025-01-21T19:53:49.737365"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 51, TrainLoss=1.5043, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T19:54:16.472713"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 52/500",
+        "time": "2025-01-21T19:54:17.080573"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 52, TrainLoss=1.5049, ValLoss=1.5052, ValIoU=0.0000",
+        "time": "2025-01-21T19:54:43.565175"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 53/500",
+        "time": "2025-01-21T19:54:44.176393"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 53, TrainLoss=1.5053, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T19:55:10.670088"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 54/500",
+        "time": "2025-01-21T19:55:11.287440"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 54, TrainLoss=1.5066, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T19:55:37.777299"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 55/500",
+        "time": "2025-01-21T19:55:38.388157"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 55, TrainLoss=1.5055, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T19:56:04.878733"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 56/500",
+        "time": "2025-01-21T19:56:05.489627"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 56, TrainLoss=1.5069, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T19:56:31.971342"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 57/500",
+        "time": "2025-01-21T19:56:32.593423"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 57, TrainLoss=1.5034, ValLoss=1.5000, ValIoU=0.0000",
+        "time": "2025-01-21T19:56:59.078802"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 58/500",
+        "time": "2025-01-21T19:56:59.685218"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 58, TrainLoss=1.5046, ValLoss=1.5014, ValIoU=0.0000",
+        "time": "2025-01-21T19:57:26.152970"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 59/500",
+        "time": "2025-01-21T19:57:26.763753"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 59, TrainLoss=1.5048, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T19:57:53.249788"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 60/500",
+        "time": "2025-01-21T19:57:53.866473"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 60, TrainLoss=1.5042, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T19:58:20.350804"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 61/500",
+        "time": "2025-01-21T19:58:20.947851"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 61, TrainLoss=1.5058, ValLoss=1.5005, ValIoU=0.0000",
+        "time": "2025-01-21T19:58:47.424259"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 62/500",
+        "time": "2025-01-21T19:58:48.032401"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 62, TrainLoss=1.5039, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T19:59:14.502171"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 63/500",
+        "time": "2025-01-21T19:59:15.102428"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 63, TrainLoss=1.5034, ValLoss=1.5019, ValIoU=0.0000",
+        "time": "2025-01-21T19:59:41.580502"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 64/500",
+        "time": "2025-01-21T19:59:42.193794"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 64, TrainLoss=1.5049, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T20:00:08.674524"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 65/500",
+        "time": "2025-01-21T20:00:09.281125"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 65, TrainLoss=1.5055, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T20:00:35.770630"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 66/500",
+        "time": "2025-01-21T20:00:36.379127"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 66, TrainLoss=1.5047, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T20:01:02.881365"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 67/500",
+        "time": "2025-01-21T20:01:03.491180"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 67, TrainLoss=1.5050, ValLoss=1.4989, ValIoU=0.0000",
+        "time": "2025-01-21T20:01:29.976101"
+    },
+    {
+        "level": "INFO",
+        "message": "Best model saved at epoch 67 with val_loss 1.4989",
+        "time": "2025-01-21T20:01:30.576824"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 68/500",
+        "time": "2025-01-21T20:01:31.119220"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 68, TrainLoss=1.5055, ValLoss=1.4995, ValIoU=0.0000",
+        "time": "2025-01-21T20:01:57.600561"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 69/500",
+        "time": "2025-01-21T20:01:59.294712"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 69, TrainLoss=1.5046, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T20:02:25.768588"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 70/500",
+        "time": "2025-01-21T20:02:26.365870"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 70, TrainLoss=1.5062, ValLoss=1.5018, ValIoU=0.0000",
+        "time": "2025-01-21T20:02:52.841702"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 71/500",
+        "time": "2025-01-21T20:02:53.446580"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 71, TrainLoss=1.5038, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T20:03:19.939047"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 72/500",
+        "time": "2025-01-21T20:03:20.538212"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 72, TrainLoss=1.5054, ValLoss=1.5048, ValIoU=0.0000",
+        "time": "2025-01-21T20:03:47.010140"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 73/500",
+        "time": "2025-01-21T20:03:47.615594"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 73, TrainLoss=1.5046, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T20:04:14.103918"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 74/500",
+        "time": "2025-01-21T20:04:14.715691"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 74, TrainLoss=1.5059, ValLoss=1.5041, ValIoU=0.0000",
+        "time": "2025-01-21T20:04:41.180742"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 75/500",
+        "time": "2025-01-21T20:04:41.778155"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 75, TrainLoss=1.5038, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T20:05:08.244747"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 76/500",
+        "time": "2025-01-21T20:05:08.849051"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 76, TrainLoss=1.5070, ValLoss=1.5055, ValIoU=0.0000",
+        "time": "2025-01-21T20:05:35.331270"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 77/500",
+        "time": "2025-01-21T20:05:35.938118"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 77, TrainLoss=1.5031, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T20:06:02.420180"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 78/500",
+        "time": "2025-01-21T20:06:03.027933"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 78, TrainLoss=1.5064, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T20:06:29.524054"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 79/500",
+        "time": "2025-01-21T20:06:30.122829"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 79, TrainLoss=1.5058, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T20:06:56.623000"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 80/500",
+        "time": "2025-01-21T20:06:57.194381"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 80, TrainLoss=1.5060, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T20:07:23.667442"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 81/500",
+        "time": "2025-01-21T20:07:24.268011"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 81, TrainLoss=1.5056, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T20:07:50.746509"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 82/500",
+        "time": "2025-01-21T20:07:51.364120"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 82, TrainLoss=1.5059, ValLoss=1.5019, ValIoU=0.0000",
+        "time": "2025-01-21T20:08:17.849466"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 83/500",
+        "time": "2025-01-21T20:08:18.443057"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 83, TrainLoss=1.5032, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T20:08:44.935553"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 84/500",
+        "time": "2025-01-21T20:08:45.549264"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 84, TrainLoss=1.5055, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T20:09:12.043753"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 85/500",
+        "time": "2025-01-21T20:09:12.649168"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 85, TrainLoss=1.5066, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T20:09:39.147592"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 86/500",
+        "time": "2025-01-21T20:09:39.820602"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 86, TrainLoss=1.5047, ValLoss=1.5001, ValIoU=0.0000",
+        "time": "2025-01-21T20:10:06.317754"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 87/500",
+        "time": "2025-01-21T20:10:06.917239"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 87, TrainLoss=1.5052, ValLoss=1.5050, ValIoU=0.0000",
+        "time": "2025-01-21T20:10:33.376897"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 88/500",
+        "time": "2025-01-21T20:10:33.974884"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 88, TrainLoss=1.5060, ValLoss=1.5057, ValIoU=0.0000",
+        "time": "2025-01-21T20:11:00.464353"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 89/500",
+        "time": "2025-01-21T20:11:01.075157"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 89, TrainLoss=1.5048, ValLoss=1.5052, ValIoU=0.0000",
+        "time": "2025-01-21T20:11:27.554256"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 90/500",
+        "time": "2025-01-21T20:11:28.157372"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 90, TrainLoss=1.5077, ValLoss=1.5001, ValIoU=0.0000",
+        "time": "2025-01-21T20:11:54.611867"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 91/500",
+        "time": "2025-01-21T20:11:55.222252"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 91, TrainLoss=1.5039, ValLoss=1.5048, ValIoU=0.0000",
+        "time": "2025-01-21T20:12:21.718509"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 92/500",
+        "time": "2025-01-21T20:12:22.328316"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 92, TrainLoss=1.5081, ValLoss=1.5041, ValIoU=0.0000",
+        "time": "2025-01-21T20:12:48.793236"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 93/500",
+        "time": "2025-01-21T20:12:49.397120"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 93, TrainLoss=1.5062, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T20:13:15.868787"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 94/500",
+        "time": "2025-01-21T20:13:16.476791"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 94, TrainLoss=1.5059, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T20:13:42.939261"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 95/500",
+        "time": "2025-01-21T20:13:43.539593"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 95, TrainLoss=1.5053, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T20:14:10.062053"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 96/500",
+        "time": "2025-01-21T20:14:10.678181"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 96, TrainLoss=1.5034, ValLoss=1.5027, ValIoU=0.0000",
+        "time": "2025-01-21T20:14:37.147274"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 97/500",
+        "time": "2025-01-21T20:14:37.765147"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 97, TrainLoss=1.5052, ValLoss=1.5039, ValIoU=0.0000",
+        "time": "2025-01-21T20:15:04.257190"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 98/500",
+        "time": "2025-01-21T20:15:04.865144"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 98, TrainLoss=1.5053, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T20:15:31.341169"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 99/500",
+        "time": "2025-01-21T20:15:31.965224"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 99, TrainLoss=1.5045, ValLoss=1.5059, ValIoU=0.0000",
+        "time": "2025-01-21T20:15:58.449058"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 100/500",
+        "time": "2025-01-21T20:15:59.057538"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 100, TrainLoss=1.5046, ValLoss=1.5047, ValIoU=0.0000",
+        "time": "2025-01-21T20:16:25.536220"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 101/500",
+        "time": "2025-01-21T20:16:26.158574"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 101, TrainLoss=1.5056, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T20:16:52.887168"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 102/500",
+        "time": "2025-01-21T20:16:53.499971"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 102, TrainLoss=1.5058, ValLoss=1.5017, ValIoU=0.0000",
+        "time": "2025-01-21T20:17:19.953328"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 103/500",
+        "time": "2025-01-21T20:17:21.634450"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 103, TrainLoss=1.5049, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T20:17:48.089553"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 104/500",
+        "time": "2025-01-21T20:17:48.702906"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 104, TrainLoss=1.5057, ValLoss=1.5043, ValIoU=0.0000",
+        "time": "2025-01-21T20:18:15.176268"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 105/500",
+        "time": "2025-01-21T20:18:15.775243"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 105, TrainLoss=1.5033, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T20:18:42.215803"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 106/500",
+        "time": "2025-01-21T20:18:42.826544"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 106, TrainLoss=1.5031, ValLoss=1.5048, ValIoU=0.0000",
+        "time": "2025-01-21T20:19:09.292692"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 107/500",
+        "time": "2025-01-21T20:19:09.900707"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 107, TrainLoss=1.5050, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T20:19:36.367185"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 108/500",
+        "time": "2025-01-21T20:19:36.972336"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 108, TrainLoss=1.5052, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T20:20:03.451742"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 109/500",
+        "time": "2025-01-21T20:20:04.063380"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 109, TrainLoss=1.5048, ValLoss=1.5020, ValIoU=0.0000",
+        "time": "2025-01-21T20:20:30.529856"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 110/500",
+        "time": "2025-01-21T20:20:31.125509"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 110, TrainLoss=1.5048, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T20:20:57.607125"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 111/500",
+        "time": "2025-01-21T20:20:58.206689"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 111, TrainLoss=1.5040, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T20:21:24.702170"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 112/500",
+        "time": "2025-01-21T20:21:25.308876"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 112, TrainLoss=1.5034, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T20:21:51.793942"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 113/500",
+        "time": "2025-01-21T20:21:52.405111"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 113, TrainLoss=1.5031, ValLoss=1.5000, ValIoU=0.0000",
+        "time": "2025-01-21T20:22:18.893824"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 114/500",
+        "time": "2025-01-21T20:22:19.507554"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 114, TrainLoss=1.5045, ValLoss=1.5012, ValIoU=0.0000",
+        "time": "2025-01-21T20:22:45.988346"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 115/500",
+        "time": "2025-01-21T20:22:46.601288"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 115, TrainLoss=1.5045, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T20:23:13.064648"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 116/500",
+        "time": "2025-01-21T20:23:13.669780"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 116, TrainLoss=1.5044, ValLoss=1.5041, ValIoU=0.0000",
+        "time": "2025-01-21T20:23:40.153429"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 117/500",
+        "time": "2025-01-21T20:23:40.754585"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 117, TrainLoss=1.5052, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T20:24:07.220843"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 118/500",
+        "time": "2025-01-21T20:24:07.818221"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 118, TrainLoss=1.5038, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T20:24:34.297345"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 119/500",
+        "time": "2025-01-21T20:24:34.910361"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 119, TrainLoss=1.5069, ValLoss=1.5006, ValIoU=0.0000",
+        "time": "2025-01-21T20:25:01.351531"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 120/500",
+        "time": "2025-01-21T20:25:01.965524"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 120, TrainLoss=1.5056, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T20:25:28.424798"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 121/500",
+        "time": "2025-01-21T20:25:29.031189"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 121, TrainLoss=1.5050, ValLoss=1.5041, ValIoU=0.0000",
+        "time": "2025-01-21T20:25:55.483211"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 122/500",
+        "time": "2025-01-21T20:25:56.088897"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 122, TrainLoss=1.5051, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T20:26:22.543712"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 123/500",
+        "time": "2025-01-21T20:26:23.137679"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 123, TrainLoss=1.5043, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T20:26:49.590554"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 124/500",
+        "time": "2025-01-21T20:26:50.204892"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 124, TrainLoss=1.5038, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T20:27:16.659089"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 125/500",
+        "time": "2025-01-21T20:27:17.263525"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 125, TrainLoss=1.5039, ValLoss=1.5004, ValIoU=0.0000",
+        "time": "2025-01-21T20:27:43.728564"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 126/500",
+        "time": "2025-01-21T20:27:44.333869"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 126, TrainLoss=1.5050, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T20:28:10.804549"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 127/500",
+        "time": "2025-01-21T20:28:11.413241"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 127, TrainLoss=1.5058, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T20:28:37.848163"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 128/500",
+        "time": "2025-01-21T20:28:38.459971"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 128, TrainLoss=1.5076, ValLoss=1.5011, ValIoU=0.0000",
+        "time": "2025-01-21T20:29:04.907266"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 129/500",
+        "time": "2025-01-21T20:29:05.517065"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 129, TrainLoss=1.5051, ValLoss=1.5044, ValIoU=0.0000",
+        "time": "2025-01-21T20:29:31.956806"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 130/500",
+        "time": "2025-01-21T20:29:32.565149"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 130, TrainLoss=1.5051, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T20:29:59.011550"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 131/500",
+        "time": "2025-01-21T20:29:59.616683"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 131, TrainLoss=1.5051, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T20:30:26.087372"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 132/500",
+        "time": "2025-01-21T20:30:26.695616"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 132, TrainLoss=1.5052, ValLoss=1.4979, ValIoU=0.0000",
+        "time": "2025-01-21T20:30:53.147326"
+    },
+    {
+        "level": "INFO",
+        "message": "Best model saved at epoch 132 with val_loss 1.4979",
+        "time": "2025-01-21T20:30:53.755322"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 133/500",
+        "time": "2025-01-21T20:30:54.298921"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 133, TrainLoss=1.5056, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T20:31:20.738638"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 134/500",
+        "time": "2025-01-21T20:31:21.600554"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 134, TrainLoss=1.5053, ValLoss=1.5039, ValIoU=0.0000",
+        "time": "2025-01-21T20:31:48.043335"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 135/500",
+        "time": "2025-01-21T20:31:48.643024"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 135, TrainLoss=1.5052, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T20:32:15.084381"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 136/500",
+        "time": "2025-01-21T20:32:15.699599"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 136, TrainLoss=1.5063, ValLoss=1.5046, ValIoU=0.0000",
+        "time": "2025-01-21T20:32:42.138613"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 137/500",
+        "time": "2025-01-21T20:32:42.747246"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 137, TrainLoss=1.5059, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T20:33:09.189202"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 138/500",
+        "time": "2025-01-21T20:33:09.792653"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 138, TrainLoss=1.5064, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T20:33:36.240625"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 139/500",
+        "time": "2025-01-21T20:33:36.851082"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 139, TrainLoss=1.5072, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T20:34:03.334685"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 140/500",
+        "time": "2025-01-21T20:34:03.944426"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 140, TrainLoss=1.5051, ValLoss=1.5017, ValIoU=0.0000",
+        "time": "2025-01-21T20:34:30.426075"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 141/500",
+        "time": "2025-01-21T20:34:31.045162"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 141, TrainLoss=1.5047, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T20:34:57.532156"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 142/500",
+        "time": "2025-01-21T20:34:58.146108"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 142, TrainLoss=1.5049, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T20:35:24.635993"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 143/500",
+        "time": "2025-01-21T20:35:25.240565"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 143, TrainLoss=1.5042, ValLoss=1.5043, ValIoU=0.0000",
+        "time": "2025-01-21T20:35:51.747706"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 144/500",
+        "time": "2025-01-21T20:35:52.289048"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 144, TrainLoss=1.5046, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T20:36:18.771391"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 145/500",
+        "time": "2025-01-21T20:36:19.338311"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 145, TrainLoss=1.5035, ValLoss=1.5018, ValIoU=0.0000",
+        "time": "2025-01-21T20:36:45.831970"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 146/500",
+        "time": "2025-01-21T20:36:46.424788"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 146, TrainLoss=1.5059, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T20:37:12.907254"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 147/500",
+        "time": "2025-01-21T20:37:13.515710"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 147, TrainLoss=1.5049, ValLoss=1.5034, ValIoU=0.0000",
+        "time": "2025-01-21T20:37:40.010537"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 148/500",
+        "time": "2025-01-21T20:37:40.604267"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 148, TrainLoss=1.5036, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T20:38:07.089076"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 149/500",
+        "time": "2025-01-21T20:38:07.706561"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 149, TrainLoss=1.5046, ValLoss=1.5043, ValIoU=0.0000",
+        "time": "2025-01-21T20:38:34.179062"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 150/500",
+        "time": "2025-01-21T20:38:34.879682"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 150, TrainLoss=1.5053, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T20:39:01.346310"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 151/500",
+        "time": "2025-01-21T20:39:01.956597"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 151, TrainLoss=1.5046, ValLoss=1.5041, ValIoU=0.0000",
+        "time": "2025-01-21T20:39:28.700337"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 152/500",
+        "time": "2025-01-21T20:39:29.310300"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 152, TrainLoss=1.5041, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T20:39:55.802571"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 153/500",
+        "time": "2025-01-21T20:39:56.415489"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 153, TrainLoss=1.5073, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T20:40:22.923285"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 154/500",
+        "time": "2025-01-21T20:40:23.526068"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 154, TrainLoss=1.5047, ValLoss=1.5053, ValIoU=0.0000",
+        "time": "2025-01-21T20:40:50.030979"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 155/500",
+        "time": "2025-01-21T20:40:50.645663"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 155, TrainLoss=1.5058, ValLoss=1.5005, ValIoU=0.0000",
+        "time": "2025-01-21T20:41:17.161779"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 156/500",
+        "time": "2025-01-21T20:41:17.774309"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 156, TrainLoss=1.5054, ValLoss=1.5017, ValIoU=0.0000",
+        "time": "2025-01-21T20:41:44.271540"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 157/500",
+        "time": "2025-01-21T20:41:44.874062"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 157, TrainLoss=1.5044, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T20:42:11.362179"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 158/500",
+        "time": "2025-01-21T20:42:11.969241"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 158, TrainLoss=1.5070, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T20:42:38.460953"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 159/500",
+        "time": "2025-01-21T20:42:39.067920"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 159, TrainLoss=1.5054, ValLoss=1.5003, ValIoU=0.0000",
+        "time": "2025-01-21T20:43:05.603372"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 160/500",
+        "time": "2025-01-21T20:43:06.221343"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 160, TrainLoss=1.5045, ValLoss=1.4997, ValIoU=0.0000",
+        "time": "2025-01-21T20:43:32.723332"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 161/500",
+        "time": "2025-01-21T20:43:33.328848"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 161, TrainLoss=1.5043, ValLoss=1.5056, ValIoU=0.0000",
+        "time": "2025-01-21T20:43:59.823819"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 162/500",
+        "time": "2025-01-21T20:44:00.435025"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 162, TrainLoss=1.5036, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T20:44:26.959459"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 163/500",
+        "time": "2025-01-21T20:44:27.553652"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 163, TrainLoss=1.5030, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T20:44:54.066382"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 164/500",
+        "time": "2025-01-21T20:44:54.681854"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 164, TrainLoss=1.5071, ValLoss=1.5052, ValIoU=0.0000",
+        "time": "2025-01-21T20:45:21.207787"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 165/500",
+        "time": "2025-01-21T20:45:21.819484"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 165, TrainLoss=1.5060, ValLoss=1.5005, ValIoU=0.0000",
+        "time": "2025-01-21T20:45:48.359923"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 166/500",
+        "time": "2025-01-21T20:45:48.956755"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 166, TrainLoss=1.5042, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T20:46:15.487549"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 167/500",
+        "time": "2025-01-21T20:46:16.142001"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 167, TrainLoss=1.5044, ValLoss=1.5054, ValIoU=0.0000",
+        "time": "2025-01-21T20:46:42.658760"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 168/500",
+        "time": "2025-01-21T20:46:43.271969"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 168, TrainLoss=1.5051, ValLoss=1.5034, ValIoU=0.0000",
+        "time": "2025-01-21T20:47:09.778836"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 169/500",
+        "time": "2025-01-21T20:47:10.394448"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 169, TrainLoss=1.5039, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T20:47:36.900503"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 170/500",
+        "time": "2025-01-21T20:47:37.510949"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 170, TrainLoss=1.5039, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T20:48:04.016985"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 171/500",
+        "time": "2025-01-21T20:48:04.623996"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 171, TrainLoss=1.5053, ValLoss=1.5017, ValIoU=0.0000",
+        "time": "2025-01-21T20:48:31.139912"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 172/500",
+        "time": "2025-01-21T20:48:31.748063"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 172, TrainLoss=1.5062, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T20:48:58.257488"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 173/500",
+        "time": "2025-01-21T20:48:58.867603"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 173, TrainLoss=1.5038, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T20:49:25.362402"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 174/500",
+        "time": "2025-01-21T20:49:25.968963"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 174, TrainLoss=1.5053, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T20:49:52.469372"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 175/500",
+        "time": "2025-01-21T20:49:53.080821"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 175, TrainLoss=1.5049, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T20:50:19.579859"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 176/500",
+        "time": "2025-01-21T20:50:20.181221"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 176, TrainLoss=1.5041, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T20:50:46.702155"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 177/500",
+        "time": "2025-01-21T20:50:47.317736"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 177, TrainLoss=1.5084, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T20:51:13.822292"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 178/500",
+        "time": "2025-01-21T20:51:14.423964"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 178, TrainLoss=1.5061, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T20:51:40.909429"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 179/500",
+        "time": "2025-01-21T20:51:41.512407"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 179, TrainLoss=1.5043, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T20:52:08.006046"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 180/500",
+        "time": "2025-01-21T20:52:08.616572"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 180, TrainLoss=1.5092, ValLoss=1.5059, ValIoU=0.0000",
+        "time": "2025-01-21T20:52:35.140783"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 181/500",
+        "time": "2025-01-21T20:52:35.745920"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 181, TrainLoss=1.5057, ValLoss=1.5011, ValIoU=0.0000",
+        "time": "2025-01-21T20:53:02.251646"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 182/500",
+        "time": "2025-01-21T20:53:02.871835"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 182, TrainLoss=1.5069, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T20:53:29.400350"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 183/500",
+        "time": "2025-01-21T20:53:30.006173"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 183, TrainLoss=1.5047, ValLoss=1.4990, ValIoU=0.0000",
+        "time": "2025-01-21T20:53:56.536661"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 184/500",
+        "time": "2025-01-21T20:53:57.152696"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 184, TrainLoss=1.5044, ValLoss=1.5081, ValIoU=0.0000",
+        "time": "2025-01-21T20:54:23.669662"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 185/500",
+        "time": "2025-01-21T20:54:24.292645"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 185, TrainLoss=1.5040, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T20:54:50.834544"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 186/500",
+        "time": "2025-01-21T20:54:51.442645"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 186, TrainLoss=1.5053, ValLoss=1.4995, ValIoU=0.0000",
+        "time": "2025-01-21T20:55:17.965349"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 187/500",
+        "time": "2025-01-21T20:55:18.568900"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 187, TrainLoss=1.5036, ValLoss=1.5047, ValIoU=0.0000",
+        "time": "2025-01-21T20:55:45.069035"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 188/500",
+        "time": "2025-01-21T20:55:45.666805"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 188, TrainLoss=1.5051, ValLoss=1.5009, ValIoU=0.0000",
+        "time": "2025-01-21T20:56:12.182697"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 189/500",
+        "time": "2025-01-21T20:56:12.793204"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 189, TrainLoss=1.5061, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T20:56:39.322678"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 190/500",
+        "time": "2025-01-21T20:56:39.934330"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 190, TrainLoss=1.5023, ValLoss=1.5051, ValIoU=0.0000",
+        "time": "2025-01-21T20:57:06.446540"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 191/500",
+        "time": "2025-01-21T20:57:07.041843"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 191, TrainLoss=1.5051, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T20:57:33.546825"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 192/500",
+        "time": "2025-01-21T20:57:34.155409"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 192, TrainLoss=1.5050, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T20:58:00.689631"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 193/500",
+        "time": "2025-01-21T20:58:01.297826"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 193, TrainLoss=1.5056, ValLoss=1.4998, ValIoU=0.0000",
+        "time": "2025-01-21T20:58:27.817292"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 194/500",
+        "time": "2025-01-21T20:58:28.426030"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 194, TrainLoss=1.5056, ValLoss=1.5044, ValIoU=0.0000",
+        "time": "2025-01-21T20:58:54.924954"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 195/500",
+        "time": "2025-01-21T20:58:55.534194"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 195, TrainLoss=1.5062, ValLoss=1.5053, ValIoU=0.0000",
+        "time": "2025-01-21T20:59:22.041658"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 196/500",
+        "time": "2025-01-21T20:59:22.647965"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 196, TrainLoss=1.5062, ValLoss=1.5057, ValIoU=0.0000",
+        "time": "2025-01-21T20:59:49.142601"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 197/500",
+        "time": "2025-01-21T20:59:49.757521"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 197, TrainLoss=1.5038, ValLoss=1.5001, ValIoU=0.0000",
+        "time": "2025-01-21T21:00:16.262016"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 198/500",
+        "time": "2025-01-21T21:00:16.870046"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 198, TrainLoss=1.5056, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T21:00:43.383000"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 199/500",
+        "time": "2025-01-21T21:00:43.989171"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 199, TrainLoss=1.5053, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T21:01:10.519301"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 200/500",
+        "time": "2025-01-21T21:01:11.129377"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 200, TrainLoss=1.5031, ValLoss=1.5047, ValIoU=0.0000",
+        "time": "2025-01-21T21:01:37.632806"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 201/500",
+        "time": "2025-01-21T21:01:38.236726"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 201, TrainLoss=1.5050, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T21:02:05.055698"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 202/500",
+        "time": "2025-01-21T21:02:05.660483"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 202, TrainLoss=1.5039, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T21:02:32.128339"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 203/500",
+        "time": "2025-01-21T21:02:32.739876"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 203, TrainLoss=1.5033, ValLoss=1.5019, ValIoU=0.0000",
+        "time": "2025-01-21T21:02:59.223098"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 204/500",
+        "time": "2025-01-21T21:02:59.831756"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 204, TrainLoss=1.5049, ValLoss=1.5003, ValIoU=0.0000",
+        "time": "2025-01-21T21:03:26.317596"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 205/500",
+        "time": "2025-01-21T21:03:26.930974"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 205, TrainLoss=1.5054, ValLoss=1.5063, ValIoU=0.0000",
+        "time": "2025-01-21T21:03:53.398300"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 206/500",
+        "time": "2025-01-21T21:03:53.990488"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 206, TrainLoss=1.5034, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T21:04:20.475623"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 207/500",
+        "time": "2025-01-21T21:04:21.080862"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 207, TrainLoss=1.5038, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T21:04:47.557868"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 208/500",
+        "time": "2025-01-21T21:04:48.175794"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 208, TrainLoss=1.5041, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T21:05:14.644466"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 209/500",
+        "time": "2025-01-21T21:05:15.254511"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 209, TrainLoss=1.5038, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T21:05:41.732225"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 210/500",
+        "time": "2025-01-21T21:05:42.350260"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 210, TrainLoss=1.5045, ValLoss=1.5044, ValIoU=0.0000",
+        "time": "2025-01-21T21:06:08.818365"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 211/500",
+        "time": "2025-01-21T21:06:09.427337"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 211, TrainLoss=1.5035, ValLoss=1.5052, ValIoU=0.0000",
+        "time": "2025-01-21T21:06:35.918741"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 212/500",
+        "time": "2025-01-21T21:06:36.531983"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 212, TrainLoss=1.5036, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T21:07:03.029379"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 213/500",
+        "time": "2025-01-21T21:07:03.637101"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 213, TrainLoss=1.5055, ValLoss=1.5027, ValIoU=0.0000",
+        "time": "2025-01-21T21:07:30.129687"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 214/500",
+        "time": "2025-01-21T21:07:30.838297"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 214, TrainLoss=1.5049, ValLoss=1.5041, ValIoU=0.0000",
+        "time": "2025-01-21T21:07:57.333528"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 215/500",
+        "time": "2025-01-21T21:07:57.947312"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 215, TrainLoss=1.5029, ValLoss=1.5014, ValIoU=0.0000",
+        "time": "2025-01-21T21:08:24.450346"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 216/500",
+        "time": "2025-01-21T21:08:25.054528"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 216, TrainLoss=1.5053, ValLoss=1.5007, ValIoU=0.0000",
+        "time": "2025-01-21T21:08:51.514972"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 217/500",
+        "time": "2025-01-21T21:08:52.129195"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 217, TrainLoss=1.5060, ValLoss=1.5006, ValIoU=0.0000",
+        "time": "2025-01-21T21:09:18.588485"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 218/500",
+        "time": "2025-01-21T21:09:19.205514"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 218, TrainLoss=1.5044, ValLoss=1.5027, ValIoU=0.0000",
+        "time": "2025-01-21T21:09:45.667764"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 219/500",
+        "time": "2025-01-21T21:09:46.276008"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 219, TrainLoss=1.5044, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T21:10:12.725737"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 220/500",
+        "time": "2025-01-21T21:10:13.322145"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 220, TrainLoss=1.5051, ValLoss=1.5049, ValIoU=0.0000",
+        "time": "2025-01-21T21:10:39.787904"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 221/500",
+        "time": "2025-01-21T21:10:40.389823"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 221, TrainLoss=1.5066, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T21:11:06.860759"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 222/500",
+        "time": "2025-01-21T21:11:07.467805"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 222, TrainLoss=1.5066, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T21:11:33.948505"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 223/500",
+        "time": "2025-01-21T21:11:34.565467"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 223, TrainLoss=1.5068, ValLoss=1.4995, ValIoU=0.0000",
+        "time": "2025-01-21T21:12:01.048566"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 224/500",
+        "time": "2025-01-21T21:12:01.655643"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 224, TrainLoss=1.5068, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T21:12:28.176675"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 225/500",
+        "time": "2025-01-21T21:12:28.788921"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 225, TrainLoss=1.5053, ValLoss=1.5017, ValIoU=0.0000",
+        "time": "2025-01-21T21:12:55.286078"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 226/500",
+        "time": "2025-01-21T21:12:55.881923"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 226, TrainLoss=1.5036, ValLoss=1.5052, ValIoU=0.0000",
+        "time": "2025-01-21T21:13:22.372999"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 227/500",
+        "time": "2025-01-21T21:13:22.978649"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 227, TrainLoss=1.5060, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T21:13:49.453992"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 228/500",
+        "time": "2025-01-21T21:13:50.066736"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 228, TrainLoss=1.5054, ValLoss=1.5007, ValIoU=0.0000",
+        "time": "2025-01-21T21:14:16.541508"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 229/500",
+        "time": "2025-01-21T21:14:17.145717"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 229, TrainLoss=1.5051, ValLoss=1.5011, ValIoU=0.0000",
+        "time": "2025-01-21T21:14:43.634459"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 230/500",
+        "time": "2025-01-21T21:14:44.243589"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 230, TrainLoss=1.5066, ValLoss=1.4990, ValIoU=0.0000",
+        "time": "2025-01-21T21:15:10.757790"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 231/500",
+        "time": "2025-01-21T21:15:11.365896"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 231, TrainLoss=1.5052, ValLoss=1.5009, ValIoU=0.0000",
+        "time": "2025-01-21T21:15:37.866171"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 232/500",
+        "time": "2025-01-21T21:15:38.474559"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 232, TrainLoss=1.5059, ValLoss=1.5009, ValIoU=0.0000",
+        "time": "2025-01-21T21:16:05.017176"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 233/500",
+        "time": "2025-01-21T21:16:06.917961"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 233, TrainLoss=1.5048, ValLoss=1.5018, ValIoU=0.0000",
+        "time": "2025-01-21T21:16:33.479052"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 234/500",
+        "time": "2025-01-21T21:16:34.090909"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 234, TrainLoss=1.5051, ValLoss=1.5027, ValIoU=0.0000",
+        "time": "2025-01-21T21:17:00.600995"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 235/500",
+        "time": "2025-01-21T21:17:01.236947"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 235, TrainLoss=1.5065, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T21:17:27.706276"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 236/500",
+        "time": "2025-01-21T21:17:28.252988"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 236, TrainLoss=3.1624, ValLoss=1.5046, ValIoU=0.0000",
+        "time": "2025-01-21T21:17:54.754058"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 237/500",
+        "time": "2025-01-21T21:17:55.369738"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 237, TrainLoss=1.5122, ValLoss=1.5058, ValIoU=0.0000",
+        "time": "2025-01-21T21:18:21.860012"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 238/500",
+        "time": "2025-01-21T21:18:22.464564"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 238, TrainLoss=1.5080, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T21:18:48.949219"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 239/500",
+        "time": "2025-01-21T21:18:49.528940"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 239, TrainLoss=1.5044, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T21:19:16.017091"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 240/500",
+        "time": "2025-01-21T21:19:16.626123"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 240, TrainLoss=1.5059, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T21:19:43.096427"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 241/500",
+        "time": "2025-01-21T21:19:43.710611"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 241, TrainLoss=1.5046, ValLoss=1.5047, ValIoU=0.0000",
+        "time": "2025-01-21T21:20:10.197048"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 242/500",
+        "time": "2025-01-21T21:20:10.806202"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 242, TrainLoss=1.5067, ValLoss=1.5055, ValIoU=0.0000",
+        "time": "2025-01-21T21:20:37.271895"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 243/500",
+        "time": "2025-01-21T21:20:37.886922"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 243, TrainLoss=1.5060, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T21:21:04.382903"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 244/500",
+        "time": "2025-01-21T21:21:04.988282"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 244, TrainLoss=1.5070, ValLoss=1.5046, ValIoU=0.0000",
+        "time": "2025-01-21T21:21:31.483979"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 245/500",
+        "time": "2025-01-21T21:21:32.104822"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 245, TrainLoss=1.5055, ValLoss=1.5043, ValIoU=0.0000",
+        "time": "2025-01-21T21:21:58.591716"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 246/500",
+        "time": "2025-01-21T21:21:59.157880"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 246, TrainLoss=1.5038, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T21:22:25.664890"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 247/500",
+        "time": "2025-01-21T21:22:26.273599"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 247, TrainLoss=1.5044, ValLoss=1.5034, ValIoU=0.0000",
+        "time": "2025-01-21T21:22:52.754022"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 248/500",
+        "time": "2025-01-21T21:22:53.370287"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 248, TrainLoss=1.5047, ValLoss=1.5027, ValIoU=0.0000",
+        "time": "2025-01-21T21:23:19.843791"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 249/500",
+        "time": "2025-01-21T21:23:20.448306"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 249, TrainLoss=1.5048, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T21:23:46.926300"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 250/500",
+        "time": "2025-01-21T21:23:47.541046"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 250, TrainLoss=1.5050, ValLoss=1.5000, ValIoU=0.0000",
+        "time": "2025-01-21T21:24:14.055272"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 251/500",
+        "time": "2025-01-21T21:24:14.665624"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 251, TrainLoss=1.5044, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T21:24:41.389846"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 252/500",
+        "time": "2025-01-21T21:24:42.002979"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 252, TrainLoss=1.5041, ValLoss=1.5003, ValIoU=0.0000",
+        "time": "2025-01-21T21:25:08.489994"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 253/500",
+        "time": "2025-01-21T21:25:09.072522"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 253, TrainLoss=1.5047, ValLoss=1.5002, ValIoU=0.0000",
+        "time": "2025-01-21T21:25:35.566328"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 254/500",
+        "time": "2025-01-21T21:25:36.182828"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 254, TrainLoss=1.5054, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T21:26:02.675835"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 255/500",
+        "time": "2025-01-21T21:26:03.297779"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 255, TrainLoss=1.5059, ValLoss=1.5067, ValIoU=0.0000",
+        "time": "2025-01-21T21:26:29.786204"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 256/500",
+        "time": "2025-01-21T21:26:30.403742"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 256, TrainLoss=1.5045, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T21:26:56.907196"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 257/500",
+        "time": "2025-01-21T21:26:57.456138"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 257, TrainLoss=1.5051, ValLoss=1.5017, ValIoU=0.0000",
+        "time": "2025-01-21T21:27:23.972394"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 258/500",
+        "time": "2025-01-21T21:27:24.592174"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 258, TrainLoss=1.5054, ValLoss=1.4997, ValIoU=0.0000",
+        "time": "2025-01-21T21:27:51.069528"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 259/500",
+        "time": "2025-01-21T21:27:51.687255"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 259, TrainLoss=1.5059, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T21:28:18.168024"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 260/500",
+        "time": "2025-01-21T21:28:18.794585"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 260, TrainLoss=1.5040, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T21:28:45.301539"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 261/500",
+        "time": "2025-01-21T21:28:45.906706"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 261, TrainLoss=1.5044, ValLoss=1.5050, ValIoU=0.0000",
+        "time": "2025-01-21T21:29:12.379246"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 262/500",
+        "time": "2025-01-21T21:29:13.062831"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 262, TrainLoss=1.5041, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T21:29:39.530516"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 263/500",
+        "time": "2025-01-21T21:29:40.158578"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 263, TrainLoss=1.5044, ValLoss=1.5046, ValIoU=0.0000",
+        "time": "2025-01-21T21:30:06.641940"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 264/500",
+        "time": "2025-01-21T21:30:07.224861"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 264, TrainLoss=1.5054, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T21:30:33.711763"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 265/500",
+        "time": "2025-01-21T21:30:34.330269"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 265, TrainLoss=1.5042, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T21:31:00.809982"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 266/500",
+        "time": "2025-01-21T21:31:01.429839"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 266, TrainLoss=1.5073, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T21:31:27.898392"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 267/500",
+        "time": "2025-01-21T21:31:28.517497"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 267, TrainLoss=1.5052, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T21:31:54.994931"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 268/500",
+        "time": "2025-01-21T21:31:55.617831"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 268, TrainLoss=1.5048, ValLoss=1.5039, ValIoU=0.0000",
+        "time": "2025-01-21T21:32:22.091693"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 269/500",
+        "time": "2025-01-21T21:32:22.710146"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 269, TrainLoss=1.5050, ValLoss=1.5051, ValIoU=0.0000",
+        "time": "2025-01-21T21:32:49.181181"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 270/500",
+        "time": "2025-01-21T21:32:49.799640"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 270, TrainLoss=1.5049, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T21:33:16.261314"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 271/500",
+        "time": "2025-01-21T21:33:16.882733"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 271, TrainLoss=1.5058, ValLoss=1.5070, ValIoU=0.0000",
+        "time": "2025-01-21T21:33:43.359042"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 272/500",
+        "time": "2025-01-21T21:33:43.979076"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 272, TrainLoss=1.5039, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T21:34:10.451281"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 273/500",
+        "time": "2025-01-21T21:34:11.058985"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 273, TrainLoss=1.5039, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T21:34:37.526338"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 274/500",
+        "time": "2025-01-21T21:34:38.141327"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 274, TrainLoss=1.5050, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T21:35:04.617397"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 275/500",
+        "time": "2025-01-21T21:35:05.246550"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 275, TrainLoss=1.5054, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T21:35:31.752388"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 276/500",
+        "time": "2025-01-21T21:35:32.373257"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 276, TrainLoss=1.5066, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T21:35:58.846141"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 277/500",
+        "time": "2025-01-21T21:35:59.453676"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 277, TrainLoss=1.5055, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T21:36:25.953774"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 278/500",
+        "time": "2025-01-21T21:36:26.571428"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 278, TrainLoss=1.5059, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T21:36:53.027906"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 279/500",
+        "time": "2025-01-21T21:36:53.644639"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 279, TrainLoss=1.5064, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T21:37:20.126995"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 280/500",
+        "time": "2025-01-21T21:37:20.742852"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 280, TrainLoss=1.5035, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T21:37:47.245623"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 281/500",
+        "time": "2025-01-21T21:37:47.858357"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 281, TrainLoss=1.5050, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T21:38:14.356907"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 282/500",
+        "time": "2025-01-21T21:38:14.969114"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 282, TrainLoss=1.5046, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T21:38:41.466233"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 283/500",
+        "time": "2025-01-21T21:38:42.083769"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 283, TrainLoss=1.5034, ValLoss=1.5027, ValIoU=0.0000",
+        "time": "2025-01-21T21:39:08.556027"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 284/500",
+        "time": "2025-01-21T21:39:09.172921"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 284, TrainLoss=1.5068, ValLoss=1.5063, ValIoU=0.0000",
+        "time": "2025-01-21T21:39:35.651948"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 285/500",
+        "time": "2025-01-21T21:39:36.266884"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 285, TrainLoss=1.5061, ValLoss=1.5009, ValIoU=0.0000",
+        "time": "2025-01-21T21:40:02.745850"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 286/500",
+        "time": "2025-01-21T21:40:03.367004"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 286, TrainLoss=1.5057, ValLoss=1.4991, ValIoU=0.0000",
+        "time": "2025-01-21T21:40:29.853597"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 287/500",
+        "time": "2025-01-21T21:40:30.577756"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 287, TrainLoss=1.5059, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T21:40:57.029008"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 288/500",
+        "time": "2025-01-21T21:40:57.638285"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 288, TrainLoss=1.5073, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T21:41:24.119479"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 289/500",
+        "time": "2025-01-21T21:41:24.734113"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 289, TrainLoss=1.5051, ValLoss=1.5047, ValIoU=0.0000",
+        "time": "2025-01-21T21:41:51.249002"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 290/500",
+        "time": "2025-01-21T21:41:51.856986"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 290, TrainLoss=1.5038, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T21:42:18.356450"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 291/500",
+        "time": "2025-01-21T21:42:18.981136"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 291, TrainLoss=1.5065, ValLoss=1.5050, ValIoU=0.0000",
+        "time": "2025-01-21T21:42:45.457410"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 292/500",
+        "time": "2025-01-21T21:42:46.064318"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 292, TrainLoss=1.5056, ValLoss=1.5052, ValIoU=0.0000",
+        "time": "2025-01-21T21:43:12.542224"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 293/500",
+        "time": "2025-01-21T21:43:13.168289"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 293, TrainLoss=1.5050, ValLoss=1.4987, ValIoU=0.0000",
+        "time": "2025-01-21T21:43:39.642450"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 294/500",
+        "time": "2025-01-21T21:43:40.248337"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 294, TrainLoss=1.5045, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T21:44:06.737560"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 295/500",
+        "time": "2025-01-21T21:44:07.357558"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 295, TrainLoss=1.5043, ValLoss=1.5004, ValIoU=0.0000",
+        "time": "2025-01-21T21:44:33.834787"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 296/500",
+        "time": "2025-01-21T21:44:34.447348"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 296, TrainLoss=1.5046, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T21:45:00.965883"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 297/500",
+        "time": "2025-01-21T21:45:01.571024"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 297, TrainLoss=1.5046, ValLoss=1.5049, ValIoU=0.0000",
+        "time": "2025-01-21T21:45:28.050825"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 298/500",
+        "time": "2025-01-21T21:45:28.673641"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 298, TrainLoss=1.5058, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T21:45:55.175277"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 299/500",
+        "time": "2025-01-21T21:45:55.791531"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 299, TrainLoss=1.5060, ValLoss=1.5011, ValIoU=0.0000",
+        "time": "2025-01-21T21:46:22.289421"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 300/500",
+        "time": "2025-01-21T21:46:22.898219"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 300, TrainLoss=1.5043, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T21:46:49.399718"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 301/500",
+        "time": "2025-01-21T21:46:50.020424"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 301, TrainLoss=1.5040, ValLoss=1.5006, ValIoU=0.0000",
+        "time": "2025-01-21T21:47:16.801970"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 302/500",
+        "time": "2025-01-21T21:47:17.408395"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 302, TrainLoss=1.5042, ValLoss=1.5004, ValIoU=0.0000",
+        "time": "2025-01-21T21:47:43.912430"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 303/500",
+        "time": "2025-01-21T21:47:44.532334"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 303, TrainLoss=1.5044, ValLoss=1.5044, ValIoU=0.0000",
+        "time": "2025-01-21T21:48:11.037992"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 304/500",
+        "time": "2025-01-21T21:48:11.655321"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 304, TrainLoss=1.5071, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T21:48:38.143426"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 305/500",
+        "time": "2025-01-21T21:48:38.746641"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 305, TrainLoss=1.5053, ValLoss=1.5004, ValIoU=0.0000",
+        "time": "2025-01-21T21:49:05.244405"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 306/500",
+        "time": "2025-01-21T21:49:05.856625"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 306, TrainLoss=1.5042, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T21:49:32.367932"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 307/500",
+        "time": "2025-01-21T21:49:32.996116"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 307, TrainLoss=1.5044, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T21:49:59.515816"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 308/500",
+        "time": "2025-01-21T21:50:00.128053"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 308, TrainLoss=1.5063, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T21:50:26.659880"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 309/500",
+        "time": "2025-01-21T21:50:27.295000"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 309, TrainLoss=1.5038, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T21:50:53.804971"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 310/500",
+        "time": "2025-01-21T21:50:54.414973"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 310, TrainLoss=1.5050, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T21:51:20.918520"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 311/500",
+        "time": "2025-01-21T21:51:21.548274"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 311, TrainLoss=1.5038, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T21:51:48.047606"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 312/500",
+        "time": "2025-01-21T21:51:48.667736"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 312, TrainLoss=1.5046, ValLoss=1.5043, ValIoU=0.0000",
+        "time": "2025-01-21T21:52:15.181153"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 313/500",
+        "time": "2025-01-21T21:52:15.797554"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 313, TrainLoss=1.5049, ValLoss=1.5051, ValIoU=0.0000",
+        "time": "2025-01-21T21:52:42.282637"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 314/500",
+        "time": "2025-01-21T21:52:42.900722"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 314, TrainLoss=1.5048, ValLoss=1.5043, ValIoU=0.0000",
+        "time": "2025-01-21T21:53:09.401553"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 315/500",
+        "time": "2025-01-21T21:53:10.006409"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 315, TrainLoss=1.5070, ValLoss=1.5052, ValIoU=0.0000",
+        "time": "2025-01-21T21:53:36.489467"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 316/500",
+        "time": "2025-01-21T21:53:37.099821"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 316, TrainLoss=1.5041, ValLoss=1.4991, ValIoU=0.0000",
+        "time": "2025-01-21T21:54:03.609342"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 317/500",
+        "time": "2025-01-21T21:54:04.232559"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 317, TrainLoss=1.5044, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T21:54:30.714749"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 318/500",
+        "time": "2025-01-21T21:54:31.331328"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 318, TrainLoss=1.5038, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T21:54:57.829078"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 319/500",
+        "time": "2025-01-21T21:54:58.448966"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 319, TrainLoss=1.5052, ValLoss=1.4999, ValIoU=0.0000",
+        "time": "2025-01-21T21:55:24.944439"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 320/500",
+        "time": "2025-01-21T21:55:25.557804"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 320, TrainLoss=1.5041, ValLoss=1.5056, ValIoU=0.0000",
+        "time": "2025-01-21T21:55:52.046017"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 321/500",
+        "time": "2025-01-21T21:55:52.663111"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 321, TrainLoss=1.5037, ValLoss=1.5047, ValIoU=0.0000",
+        "time": "2025-01-21T21:56:19.162677"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 322/500",
+        "time": "2025-01-21T21:56:19.776845"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 322, TrainLoss=1.5055, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T21:56:46.266798"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 323/500",
+        "time": "2025-01-21T21:56:46.873873"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 323, TrainLoss=1.5054, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T21:57:13.362398"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 324/500",
+        "time": "2025-01-21T21:57:13.977139"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 324, TrainLoss=1.5060, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T21:57:40.464034"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 325/500",
+        "time": "2025-01-21T21:57:41.084996"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 325, TrainLoss=1.5054, ValLoss=1.5006, ValIoU=0.0000",
+        "time": "2025-01-21T21:58:07.527028"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 326/500",
+        "time": "2025-01-21T21:58:08.143228"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 326, TrainLoss=1.5049, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T21:58:34.629664"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 327/500",
+        "time": "2025-01-21T21:58:35.253817"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 327, TrainLoss=1.5052, ValLoss=1.5019, ValIoU=0.0000",
+        "time": "2025-01-21T21:59:01.741136"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 328/500",
+        "time": "2025-01-21T21:59:02.356032"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 328, TrainLoss=1.5047, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T21:59:28.830325"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 329/500",
+        "time": "2025-01-21T21:59:29.448420"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 329, TrainLoss=1.5070, ValLoss=1.5053, ValIoU=0.0000",
+        "time": "2025-01-21T21:59:55.974104"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 330/500",
+        "time": "2025-01-21T21:59:56.583390"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 330, TrainLoss=1.5038, ValLoss=1.5034, ValIoU=0.0000",
+        "time": "2025-01-21T22:00:23.107983"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 331/500",
+        "time": "2025-01-21T22:00:23.735358"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 331, TrainLoss=1.5054, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T22:00:50.245215"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 332/500",
+        "time": "2025-01-21T22:00:50.862699"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 332, TrainLoss=1.5045, ValLoss=1.5003, ValIoU=0.0000",
+        "time": "2025-01-21T22:01:17.354168"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 333/500",
+        "time": "2025-01-21T22:01:17.949671"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 333, TrainLoss=1.5067, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T22:01:44.447704"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 334/500",
+        "time": "2025-01-21T22:01:45.065444"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 334, TrainLoss=1.5045, ValLoss=1.5005, ValIoU=0.0000",
+        "time": "2025-01-21T22:02:11.549051"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 335/500",
+        "time": "2025-01-21T22:02:12.182145"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 335, TrainLoss=1.5038, ValLoss=1.5050, ValIoU=0.0000",
+        "time": "2025-01-21T22:02:38.653365"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 336/500",
+        "time": "2025-01-21T22:02:39.262866"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 336, TrainLoss=1.5050, ValLoss=1.5001, ValIoU=0.0000",
+        "time": "2025-01-21T22:03:05.748288"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 337/500",
+        "time": "2025-01-21T22:03:06.362088"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 337, TrainLoss=1.5051, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T22:03:32.871206"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 338/500",
+        "time": "2025-01-21T22:03:33.485162"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 338, TrainLoss=1.5038, ValLoss=1.4981, ValIoU=0.0000",
+        "time": "2025-01-21T22:03:59.977654"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 339/500",
+        "time": "2025-01-21T22:04:00.565844"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 339, TrainLoss=1.5033, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T22:04:27.050778"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 340/500",
+        "time": "2025-01-21T22:04:27.671708"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 340, TrainLoss=1.5055, ValLoss=1.5011, ValIoU=0.0000",
+        "time": "2025-01-21T22:04:54.189174"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 341/500",
+        "time": "2025-01-21T22:04:54.800263"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 341, TrainLoss=1.5027, ValLoss=1.4984, ValIoU=0.0000",
+        "time": "2025-01-21T22:05:21.315030"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 342/500",
+        "time": "2025-01-21T22:05:21.934761"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 342, TrainLoss=1.5043, ValLoss=1.5044, ValIoU=0.0000",
+        "time": "2025-01-21T22:05:48.429908"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 343/500",
+        "time": "2025-01-21T22:05:49.059697"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 343, TrainLoss=1.5065, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T22:06:15.570778"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 344/500",
+        "time": "2025-01-21T22:06:16.182501"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 344, TrainLoss=1.5040, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T22:06:42.682406"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 345/500",
+        "time": "2025-01-21T22:06:43.448889"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 345, TrainLoss=1.5060, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T22:07:09.933995"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 346/500",
+        "time": "2025-01-21T22:07:10.523356"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 346, TrainLoss=1.5042, ValLoss=1.5048, ValIoU=0.0000",
+        "time": "2025-01-21T22:07:37.014571"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 347/500",
+        "time": "2025-01-21T22:07:37.628450"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 347, TrainLoss=1.5030, ValLoss=1.5027, ValIoU=0.0000",
+        "time": "2025-01-21T22:08:04.123317"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 348/500",
+        "time": "2025-01-21T22:08:04.740670"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 348, TrainLoss=1.5051, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T22:08:31.242211"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 349/500",
+        "time": "2025-01-21T22:08:31.854455"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 349, TrainLoss=1.5050, ValLoss=1.5004, ValIoU=0.0000",
+        "time": "2025-01-21T22:08:58.347729"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 350/500",
+        "time": "2025-01-21T22:08:58.969594"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 350, TrainLoss=1.5073, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T22:09:25.472520"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 351/500",
+        "time": "2025-01-21T22:09:26.075665"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 351, TrainLoss=1.5046, ValLoss=1.5007, ValIoU=0.0000",
+        "time": "2025-01-21T22:09:52.815275"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 352/500",
+        "time": "2025-01-21T22:09:53.437317"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 352, TrainLoss=1.5055, ValLoss=1.5051, ValIoU=0.0000",
+        "time": "2025-01-21T22:10:19.940592"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 353/500",
+        "time": "2025-01-21T22:10:20.566417"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 353, TrainLoss=1.5061, ValLoss=1.5047, ValIoU=0.0000",
+        "time": "2025-01-21T22:10:47.070772"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 354/500",
+        "time": "2025-01-21T22:10:47.692615"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 354, TrainLoss=1.5044, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T22:11:14.191995"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 355/500",
+        "time": "2025-01-21T22:11:14.820539"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 355, TrainLoss=1.5052, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T22:11:41.302247"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 356/500",
+        "time": "2025-01-21T22:11:41.906038"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 356, TrainLoss=1.5046, ValLoss=1.5005, ValIoU=0.0000",
+        "time": "2025-01-21T22:12:08.414711"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 357/500",
+        "time": "2025-01-21T22:12:09.028036"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 357, TrainLoss=1.5054, ValLoss=1.5050, ValIoU=0.0000",
+        "time": "2025-01-21T22:12:35.526768"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 358/500",
+        "time": "2025-01-21T22:12:36.146834"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 358, TrainLoss=1.5065, ValLoss=1.5005, ValIoU=0.0000",
+        "time": "2025-01-21T22:13:02.607714"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 359/500",
+        "time": "2025-01-21T22:13:03.219119"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 359, TrainLoss=1.5043, ValLoss=1.4991, ValIoU=0.0000",
+        "time": "2025-01-21T22:13:29.705003"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 360/500",
+        "time": "2025-01-21T22:13:30.268875"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 360, TrainLoss=1.5074, ValLoss=1.5006, ValIoU=0.0000",
+        "time": "2025-01-21T22:13:56.748896"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 361/500",
+        "time": "2025-01-21T22:13:57.361230"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 361, TrainLoss=1.5051, ValLoss=1.4996, ValIoU=0.0000",
+        "time": "2025-01-21T22:14:23.851481"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 362/500",
+        "time": "2025-01-21T22:14:24.471534"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 362, TrainLoss=1.5045, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T22:14:50.964972"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 363/500",
+        "time": "2025-01-21T22:14:51.559826"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 363, TrainLoss=1.5052, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T22:15:18.076393"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 364/500",
+        "time": "2025-01-21T22:15:18.699965"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 364, TrainLoss=1.5040, ValLoss=1.4991, ValIoU=0.0000",
+        "time": "2025-01-21T22:15:45.211523"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 365/500",
+        "time": "2025-01-21T22:15:45.825420"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 365, TrainLoss=1.5065, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T22:16:12.294543"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 366/500",
+        "time": "2025-01-21T22:16:12.921800"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 366, TrainLoss=1.5046, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T22:16:39.410563"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 367/500",
+        "time": "2025-01-21T22:16:40.020568"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 367, TrainLoss=1.5055, ValLoss=1.5003, ValIoU=0.0000",
+        "time": "2025-01-21T22:17:06.521932"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 368/500",
+        "time": "2025-01-21T22:17:07.125983"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 368, TrainLoss=1.5065, ValLoss=1.5017, ValIoU=0.0000",
+        "time": "2025-01-21T22:17:33.628012"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 369/500",
+        "time": "2025-01-21T22:17:34.241737"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 369, TrainLoss=1.5035, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T22:18:00.746505"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 370/500",
+        "time": "2025-01-21T22:18:01.346691"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 370, TrainLoss=1.5046, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T22:18:27.868760"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 371/500",
+        "time": "2025-01-21T22:18:28.473948"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 371, TrainLoss=1.5045, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T22:18:54.972713"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 372/500",
+        "time": "2025-01-21T22:18:55.583180"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 372, TrainLoss=1.5050, ValLoss=1.5000, ValIoU=0.0000",
+        "time": "2025-01-21T22:19:22.056195"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 373/500",
+        "time": "2025-01-21T22:19:22.673267"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 373, TrainLoss=1.5063, ValLoss=1.5001, ValIoU=0.0000",
+        "time": "2025-01-21T22:19:49.166069"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 374/500",
+        "time": "2025-01-21T22:19:49.788369"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 374, TrainLoss=1.5037, ValLoss=1.5010, ValIoU=0.0000",
+        "time": "2025-01-21T22:20:16.319514"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 375/500",
+        "time": "2025-01-21T22:20:16.932227"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 375, TrainLoss=1.5039, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T22:20:43.408320"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 376/500",
+        "time": "2025-01-21T22:20:44.018705"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 376, TrainLoss=1.5081, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T22:21:10.492130"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 377/500",
+        "time": "2025-01-21T22:21:11.099501"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 377, TrainLoss=1.5047, ValLoss=1.5042, ValIoU=0.0000",
+        "time": "2025-01-21T22:21:37.557063"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 378/500",
+        "time": "2025-01-21T22:21:38.168251"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 378, TrainLoss=1.5074, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T22:22:04.662839"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 379/500",
+        "time": "2025-01-21T22:22:05.279350"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 379, TrainLoss=1.5047, ValLoss=1.5057, ValIoU=0.0000",
+        "time": "2025-01-21T22:22:31.757909"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 380/500",
+        "time": "2025-01-21T22:22:32.374626"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 380, TrainLoss=1.5084, ValLoss=1.5020, ValIoU=0.0000",
+        "time": "2025-01-21T22:22:58.893151"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 381/500",
+        "time": "2025-01-21T22:22:59.513265"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 381, TrainLoss=1.5053, ValLoss=1.5018, ValIoU=0.0000",
+        "time": "2025-01-21T22:23:26.032721"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 382/500",
+        "time": "2025-01-21T22:23:26.632572"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 382, TrainLoss=1.5048, ValLoss=1.5012, ValIoU=0.0000",
+        "time": "2025-01-21T22:23:53.122338"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 383/500",
+        "time": "2025-01-21T22:23:53.740730"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 383, TrainLoss=1.5047, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T22:24:20.249395"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 384/500",
+        "time": "2025-01-21T22:24:20.857973"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 384, TrainLoss=1.5054, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T22:24:47.356003"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 385/500",
+        "time": "2025-01-21T22:24:47.971110"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 385, TrainLoss=1.5045, ValLoss=1.5014, ValIoU=0.0000",
+        "time": "2025-01-21T22:25:14.485068"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 386/500",
+        "time": "2025-01-21T22:25:15.111381"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 386, TrainLoss=1.5046, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T22:25:41.635559"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 387/500",
+        "time": "2025-01-21T22:25:42.241137"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 387, TrainLoss=1.5050, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T22:26:08.760773"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 388/500",
+        "time": "2025-01-21T22:26:09.376780"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 388, TrainLoss=1.5061, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T22:26:35.889913"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 389/500",
+        "time": "2025-01-21T22:26:36.492398"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 389, TrainLoss=1.5063, ValLoss=1.5017, ValIoU=0.0000",
+        "time": "2025-01-21T22:27:03.006681"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 390/500",
+        "time": "2025-01-21T22:27:03.627439"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 390, TrainLoss=1.5062, ValLoss=1.5020, ValIoU=0.0000",
+        "time": "2025-01-21T22:27:30.132494"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 391/500",
+        "time": "2025-01-21T22:27:30.760446"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 391, TrainLoss=1.5046, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T22:27:57.263067"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 392/500",
+        "time": "2025-01-21T22:27:57.865904"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 392, TrainLoss=1.5060, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T22:28:24.369811"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 393/500",
+        "time": "2025-01-21T22:28:24.980092"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 393, TrainLoss=1.5044, ValLoss=1.4991, ValIoU=0.0000",
+        "time": "2025-01-21T22:28:51.496573"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 394/500",
+        "time": "2025-01-21T22:28:52.107782"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 394, TrainLoss=1.5058, ValLoss=1.5046, ValIoU=0.0000",
+        "time": "2025-01-21T22:29:18.610535"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 395/500",
+        "time": "2025-01-21T22:29:19.229235"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 395, TrainLoss=1.5049, ValLoss=1.5044, ValIoU=0.0000",
+        "time": "2025-01-21T22:29:45.759578"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 396/500",
+        "time": "2025-01-21T22:29:46.377302"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 396, TrainLoss=1.5037, ValLoss=1.5019, ValIoU=0.0000",
+        "time": "2025-01-21T22:30:12.901382"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 397/500",
+        "time": "2025-01-21T22:30:13.472389"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 397, TrainLoss=1.5037, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T22:30:39.991433"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 398/500",
+        "time": "2025-01-21T22:30:40.620497"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 398, TrainLoss=1.5043, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T22:31:07.129489"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 399/500",
+        "time": "2025-01-21T22:31:07.752288"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 399, TrainLoss=1.5045, ValLoss=1.5012, ValIoU=0.0000",
+        "time": "2025-01-21T22:31:34.253475"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 400/500",
+        "time": "2025-01-21T22:31:34.858175"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 400, TrainLoss=1.5048, ValLoss=1.5067, ValIoU=0.0000",
+        "time": "2025-01-21T22:32:01.374358"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 401/500",
+        "time": "2025-01-21T22:32:01.993803"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 401, TrainLoss=1.5051, ValLoss=1.5035, ValIoU=0.0000",
+        "time": "2025-01-21T22:32:28.764359"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 402/500",
+        "time": "2025-01-21T22:32:29.379567"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 402, TrainLoss=1.5047, ValLoss=1.5038, ValIoU=0.0000",
+        "time": "2025-01-21T22:32:55.848396"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 403/500",
+        "time": "2025-01-21T22:32:56.542574"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 403, TrainLoss=1.5068, ValLoss=1.5020, ValIoU=0.0000",
+        "time": "2025-01-21T22:33:23.054236"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 404/500",
+        "time": "2025-01-21T22:33:23.675893"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 404, TrainLoss=1.5041, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T22:33:50.197678"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 405/500",
+        "time": "2025-01-21T22:33:50.801893"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 405, TrainLoss=1.5039, ValLoss=1.5018, ValIoU=0.0000",
+        "time": "2025-01-21T22:34:17.303450"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 406/500",
+        "time": "2025-01-21T22:34:17.885699"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 406, TrainLoss=1.5046, ValLoss=1.5004, ValIoU=0.0000",
+        "time": "2025-01-21T22:34:44.391247"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 407/500",
+        "time": "2025-01-21T22:34:45.004155"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 407, TrainLoss=1.5039, ValLoss=1.4991, ValIoU=0.0000",
+        "time": "2025-01-21T22:35:11.488745"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 408/500",
+        "time": "2025-01-21T22:35:12.100187"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 408, TrainLoss=1.5057, ValLoss=1.5019, ValIoU=0.0000",
+        "time": "2025-01-21T22:35:38.571420"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 409/500",
+        "time": "2025-01-21T22:35:39.194013"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 409, TrainLoss=1.5056, ValLoss=1.5044, ValIoU=0.0000",
+        "time": "2025-01-21T22:36:05.704396"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 410/500",
+        "time": "2025-01-21T22:36:06.317969"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 410, TrainLoss=1.5046, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T22:36:32.812563"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 411/500",
+        "time": "2025-01-21T22:36:33.430484"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 411, TrainLoss=1.5045, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T22:36:59.929907"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 412/500",
+        "time": "2025-01-21T22:37:00.536349"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 412, TrainLoss=1.5033, ValLoss=1.5014, ValIoU=0.0000",
+        "time": "2025-01-21T22:37:27.040173"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 413/500",
+        "time": "2025-01-21T22:37:27.638954"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 413, TrainLoss=1.5040, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T22:37:54.161949"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 414/500",
+        "time": "2025-01-21T22:37:54.929226"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 414, TrainLoss=1.5041, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T22:38:21.443360"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 415/500",
+        "time": "2025-01-21T22:38:22.048246"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 415, TrainLoss=1.5063, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T22:38:48.539591"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 416/500",
+        "time": "2025-01-21T22:38:49.160783"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 416, TrainLoss=1.5063, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T22:39:15.662216"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 417/500",
+        "time": "2025-01-21T22:39:16.270959"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 417, TrainLoss=1.5069, ValLoss=1.5007, ValIoU=0.0000",
+        "time": "2025-01-21T22:39:42.751469"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 418/500",
+        "time": "2025-01-21T22:39:43.364608"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 418, TrainLoss=1.5067, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T22:40:09.826155"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 419/500",
+        "time": "2025-01-21T22:40:10.435782"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 419, TrainLoss=1.5048, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T22:40:36.920720"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 420/500",
+        "time": "2025-01-21T22:40:37.521526"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 420, TrainLoss=1.5047, ValLoss=1.5045, ValIoU=0.0000",
+        "time": "2025-01-21T22:41:04.017185"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 421/500",
+        "time": "2025-01-21T22:41:04.635206"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 421, TrainLoss=1.5067, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T22:41:31.153730"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 422/500",
+        "time": "2025-01-21T22:41:31.768951"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 422, TrainLoss=1.5044, ValLoss=1.4991, ValIoU=0.0000",
+        "time": "2025-01-21T22:41:58.269108"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 423/500",
+        "time": "2025-01-21T22:41:58.892437"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 423, TrainLoss=1.5061, ValLoss=1.5004, ValIoU=0.0000",
+        "time": "2025-01-21T22:42:25.408612"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 424/500",
+        "time": "2025-01-21T22:42:26.005898"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 424, TrainLoss=1.5027, ValLoss=1.5036, ValIoU=0.0000",
+        "time": "2025-01-21T22:42:52.518145"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 425/500",
+        "time": "2025-01-21T22:42:53.128737"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 425, TrainLoss=1.5059, ValLoss=1.5014, ValIoU=0.0000",
+        "time": "2025-01-21T22:43:19.628364"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 426/500",
+        "time": "2025-01-21T22:43:20.241498"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 426, TrainLoss=1.5062, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T22:43:46.740064"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 427/500",
+        "time": "2025-01-21T22:43:47.358444"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 427, TrainLoss=1.5042, ValLoss=1.5041, ValIoU=0.0000",
+        "time": "2025-01-21T22:44:13.860085"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 428/500",
+        "time": "2025-01-21T22:44:14.462887"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 428, TrainLoss=1.5067, ValLoss=1.5055, ValIoU=0.0000",
+        "time": "2025-01-21T22:44:40.956211"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 429/500",
+        "time": "2025-01-21T22:44:41.577423"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 429, TrainLoss=1.5068, ValLoss=1.5055, ValIoU=0.1271",
+        "time": "2025-01-21T22:45:08.070856"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 430/500",
+        "time": "2025-01-21T22:45:08.685762"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 430, TrainLoss=1.5055, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T22:45:35.186089"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 431/500",
+        "time": "2025-01-21T22:45:35.803077"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 431, TrainLoss=1.5047, ValLoss=1.4985, ValIoU=0.0000",
+        "time": "2025-01-21T22:46:02.334891"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 432/500",
+        "time": "2025-01-21T22:46:02.951764"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 432, TrainLoss=1.5043, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T22:46:29.456346"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 433/500",
+        "time": "2025-01-21T22:46:30.067495"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 433, TrainLoss=1.5083, ValLoss=1.5045, ValIoU=0.0000",
+        "time": "2025-01-21T22:46:56.572048"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 434/500",
+        "time": "2025-01-21T22:46:57.191556"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 434, TrainLoss=1.5060, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T22:47:23.708346"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 435/500",
+        "time": "2025-01-21T22:47:24.318920"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 435, TrainLoss=1.5054, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T22:47:50.822396"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 436/500",
+        "time": "2025-01-21T22:47:51.443782"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 436, TrainLoss=1.5064, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T22:48:17.944231"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 437/500",
+        "time": "2025-01-21T22:48:18.560912"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 437, TrainLoss=1.5044, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T22:48:45.070268"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 438/500",
+        "time": "2025-01-21T22:48:45.684358"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 438, TrainLoss=1.5051, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T22:49:12.188335"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 439/500",
+        "time": "2025-01-21T22:49:12.804427"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 439, TrainLoss=1.5050, ValLoss=1.5025, ValIoU=0.0000",
+        "time": "2025-01-21T22:49:39.306324"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 440/500",
+        "time": "2025-01-21T22:49:39.914680"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 440, TrainLoss=1.5039, ValLoss=1.5005, ValIoU=0.0000",
+        "time": "2025-01-21T22:50:06.408553"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 441/500",
+        "time": "2025-01-21T22:50:07.009144"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 441, TrainLoss=1.5052, ValLoss=1.5056, ValIoU=0.0000",
+        "time": "2025-01-21T22:50:33.497933"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 442/500",
+        "time": "2025-01-21T22:50:34.105979"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 442, TrainLoss=1.5046, ValLoss=1.5004, ValIoU=0.0000",
+        "time": "2025-01-21T22:51:00.596711"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 443/500",
+        "time": "2025-01-21T22:51:01.209689"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 443, TrainLoss=1.5057, ValLoss=1.5053, ValIoU=0.0000",
+        "time": "2025-01-21T22:51:27.692877"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 444/500",
+        "time": "2025-01-21T22:51:28.311218"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 444, TrainLoss=1.5046, ValLoss=1.4998, ValIoU=0.0000",
+        "time": "2025-01-21T22:51:54.787006"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 445/500",
+        "time": "2025-01-21T22:51:55.400789"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 445, TrainLoss=1.5048, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T22:52:21.901834"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 446/500",
+        "time": "2025-01-21T22:52:22.516273"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 446, TrainLoss=1.5056, ValLoss=1.5018, ValIoU=0.0000",
+        "time": "2025-01-21T22:52:48.992573"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 447/500",
+        "time": "2025-01-21T22:52:49.611392"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 447, TrainLoss=1.5061, ValLoss=1.4999, ValIoU=0.0000",
+        "time": "2025-01-21T22:53:16.098796"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 448/500",
+        "time": "2025-01-21T22:53:16.711656"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 448, TrainLoss=1.5046, ValLoss=1.5044, ValIoU=0.0000",
+        "time": "2025-01-21T22:53:43.178040"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 449/500",
+        "time": "2025-01-21T22:53:43.799475"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 449, TrainLoss=1.5055, ValLoss=1.5006, ValIoU=0.0000",
+        "time": "2025-01-21T22:54:10.321487"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 450/500",
+        "time": "2025-01-21T22:54:10.940251"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 450, TrainLoss=1.5035, ValLoss=1.5040, ValIoU=0.0000",
+        "time": "2025-01-21T22:54:37.415307"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 451/500",
+        "time": "2025-01-21T22:54:38.028703"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 451, TrainLoss=1.5051, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T22:55:04.772323"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 452/500",
+        "time": "2025-01-21T22:55:05.389736"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 452, TrainLoss=1.5047, ValLoss=1.4981, ValIoU=0.0000",
+        "time": "2025-01-21T22:55:31.877968"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 453/500",
+        "time": "2025-01-21T22:55:32.493965"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 453, TrainLoss=1.5044, ValLoss=1.5024, ValIoU=0.0000",
+        "time": "2025-01-21T22:55:58.990476"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 454/500",
+        "time": "2025-01-21T22:55:59.606203"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 454, TrainLoss=1.5039, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T22:56:26.104031"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 455/500",
+        "time": "2025-01-21T22:56:26.721337"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 455, TrainLoss=1.5062, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T22:56:53.201912"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 456/500",
+        "time": "2025-01-21T22:56:53.889850"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 456, TrainLoss=1.5048, ValLoss=1.5043, ValIoU=0.0000",
+        "time": "2025-01-21T22:57:20.367696"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 457/500",
+        "time": "2025-01-21T22:57:20.975709"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 457, TrainLoss=1.5056, ValLoss=1.5043, ValIoU=0.0000",
+        "time": "2025-01-21T22:57:47.484906"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 458/500",
+        "time": "2025-01-21T22:57:48.084420"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 458, TrainLoss=1.5053, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T22:58:14.587875"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 459/500",
+        "time": "2025-01-21T22:58:15.205810"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 459, TrainLoss=1.5036, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T22:58:41.702445"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 460/500",
+        "time": "2025-01-21T22:58:42.318270"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 460, TrainLoss=1.5047, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T22:59:08.826441"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 461/500",
+        "time": "2025-01-21T22:59:09.431234"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 461, TrainLoss=1.5054, ValLoss=1.5028, ValIoU=0.0000",
+        "time": "2025-01-21T22:59:35.892634"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 462/500",
+        "time": "2025-01-21T22:59:36.509877"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 462, TrainLoss=1.5039, ValLoss=1.5030, ValIoU=0.0000",
+        "time": "2025-01-21T23:00:03.013740"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 463/500",
+        "time": "2025-01-21T23:00:03.626442"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 463, TrainLoss=1.5051, ValLoss=1.5020, ValIoU=0.0000",
+        "time": "2025-01-21T23:00:30.134317"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 464/500",
+        "time": "2025-01-21T23:00:30.748014"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 464, TrainLoss=1.5038, ValLoss=1.5059, ValIoU=0.0000",
+        "time": "2025-01-21T23:00:57.249229"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 465/500",
+        "time": "2025-01-21T23:00:57.869066"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 465, TrainLoss=1.5046, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T23:01:24.373044"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 466/500",
+        "time": "2025-01-21T23:01:24.976979"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 466, TrainLoss=1.5028, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T23:01:51.490255"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 467/500",
+        "time": "2025-01-21T23:01:52.107334"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 467, TrainLoss=1.5063, ValLoss=1.5009, ValIoU=0.0149",
+        "time": "2025-01-21T23:02:18.611010"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 468/500",
+        "time": "2025-01-21T23:02:19.222292"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 468, TrainLoss=1.5056, ValLoss=1.5013, ValIoU=0.0000",
+        "time": "2025-01-21T23:02:45.707176"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 469/500",
+        "time": "2025-01-21T23:02:46.311142"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 469, TrainLoss=1.5063, ValLoss=1.5015, ValIoU=0.0000",
+        "time": "2025-01-21T23:03:12.827155"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 470/500",
+        "time": "2025-01-21T23:03:13.435418"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 470, TrainLoss=1.5053, ValLoss=1.5020, ValIoU=0.0000",
+        "time": "2025-01-21T23:03:39.928904"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 471/500",
+        "time": "2025-01-21T23:03:40.542848"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 471, TrainLoss=1.5043, ValLoss=1.5009, ValIoU=0.0000",
+        "time": "2025-01-21T23:04:07.033140"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 472/500",
+        "time": "2025-01-21T23:04:07.639225"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 472, TrainLoss=1.5074, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T23:04:34.153068"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 473/500",
+        "time": "2025-01-21T23:04:34.777862"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 473, TrainLoss=1.5055, ValLoss=1.5054, ValIoU=0.0000",
+        "time": "2025-01-21T23:05:01.272779"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 474/500",
+        "time": "2025-01-21T23:05:01.885850"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 474, TrainLoss=1.5057, ValLoss=1.5039, ValIoU=0.0000",
+        "time": "2025-01-21T23:05:28.351951"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 475/500",
+        "time": "2025-01-21T23:05:28.951502"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 475, TrainLoss=1.5064, ValLoss=1.5037, ValIoU=0.0000",
+        "time": "2025-01-21T23:05:55.431704"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 476/500",
+        "time": "2025-01-21T23:05:56.039315"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 476, TrainLoss=1.5049, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T23:06:22.527107"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 477/500",
+        "time": "2025-01-21T23:06:23.144342"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 477, TrainLoss=1.5056, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T23:06:49.634818"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 478/500",
+        "time": "2025-01-21T23:06:50.254073"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 478, TrainLoss=1.5036, ValLoss=1.5016, ValIoU=0.0000",
+        "time": "2025-01-21T23:07:16.761481"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 479/500",
+        "time": "2025-01-21T23:07:17.374555"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 479, TrainLoss=1.5054, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T23:07:43.867626"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 480/500",
+        "time": "2025-01-21T23:07:44.707154"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 480, TrainLoss=1.5034, ValLoss=1.5022, ValIoU=0.0000",
+        "time": "2025-01-21T23:08:11.184295"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 481/500",
+        "time": "2025-01-21T23:08:11.794244"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 481, TrainLoss=1.5051, ValLoss=1.5023, ValIoU=0.0000",
+        "time": "2025-01-21T23:08:38.277655"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 482/500",
+        "time": "2025-01-21T23:08:38.896765"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 482, TrainLoss=1.5052, ValLoss=1.4994, ValIoU=0.0000",
+        "time": "2025-01-21T23:09:05.390987"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 483/500",
+        "time": "2025-01-21T23:09:05.999195"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 483, TrainLoss=1.5053, ValLoss=1.5008, ValIoU=0.0000",
+        "time": "2025-01-21T23:09:32.513949"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 484/500",
+        "time": "2025-01-21T23:09:33.120644"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 484, TrainLoss=1.5046, ValLoss=1.5019, ValIoU=0.0000",
+        "time": "2025-01-21T23:09:59.627957"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 485/500",
+        "time": "2025-01-21T23:10:00.246890"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 485, TrainLoss=1.5049, ValLoss=1.5049, ValIoU=0.0000",
+        "time": "2025-01-21T23:10:26.785422"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 486/500",
+        "time": "2025-01-21T23:10:27.399707"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 486, TrainLoss=1.5068, ValLoss=1.4998, ValIoU=0.0000",
+        "time": "2025-01-21T23:10:53.900356"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 487/500",
+        "time": "2025-01-21T23:10:54.515423"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 487, TrainLoss=1.5031, ValLoss=1.5069, ValIoU=0.0000",
+        "time": "2025-01-21T23:11:21.027288"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 488/500",
+        "time": "2025-01-21T23:11:21.646615"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 488, TrainLoss=1.5054, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T23:11:48.147830"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 489/500",
+        "time": "2025-01-21T23:11:48.755187"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 489, TrainLoss=1.5044, ValLoss=1.5033, ValIoU=0.0000",
+        "time": "2025-01-21T23:12:15.260875"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 490/500",
+        "time": "2025-01-21T23:12:15.867005"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 490, TrainLoss=1.5043, ValLoss=1.5007, ValIoU=0.0000",
+        "time": "2025-01-21T23:12:42.346164"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 491/500",
+        "time": "2025-01-21T23:12:42.958485"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 491, TrainLoss=1.5039, ValLoss=1.5018, ValIoU=0.0000",
+        "time": "2025-01-21T23:13:09.449912"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 492/500",
+        "time": "2025-01-21T23:13:10.065864"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 492, TrainLoss=1.5037, ValLoss=1.4999, ValIoU=0.0000",
+        "time": "2025-01-21T23:13:36.568314"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 493/500",
+        "time": "2025-01-21T23:13:37.182942"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 493, TrainLoss=1.5040, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T23:14:03.691469"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 494/500",
+        "time": "2025-01-21T23:14:04.304032"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 494, TrainLoss=1.5055, ValLoss=1.5029, ValIoU=0.0000",
+        "time": "2025-01-21T23:14:30.779366"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 495/500",
+        "time": "2025-01-21T23:14:31.407825"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 495, TrainLoss=1.5033, ValLoss=1.5014, ValIoU=0.0000",
+        "time": "2025-01-21T23:14:57.887904"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 496/500",
+        "time": "2025-01-21T23:14:58.506943"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 496, TrainLoss=1.5034, ValLoss=1.5026, ValIoU=0.0000",
+        "time": "2025-01-21T23:15:25.021275"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 497/500",
+        "time": "2025-01-21T23:15:25.633118"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 497, TrainLoss=1.5059, ValLoss=1.5021, ValIoU=0.0000",
+        "time": "2025-01-21T23:15:52.134263"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 498/500",
+        "time": "2025-01-21T23:15:52.753628"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 498, TrainLoss=1.5028, ValLoss=1.5032, ValIoU=0.0000",
+        "time": "2025-01-21T23:16:19.259567"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 499/500",
+        "time": "2025-01-21T23:16:19.863965"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 499, TrainLoss=1.5058, ValLoss=1.5031, ValIoU=0.0000",
+        "time": "2025-01-21T23:16:46.369297"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 500/500",
+        "time": "2025-01-21T23:16:46.947647"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 500, TrainLoss=1.5054, ValLoss=1.5001, ValIoU=0.0000",
+        "time": "2025-01-21T23:17:13.472884"
+    },
+    {
+        "level": "INFO",
+        "message": "Metrics saved to ./med-sam/metrics/medsam_vit_b_adam_lr0.01_bs2_both_80.0pct_21012025_metrics.json",
+        "time": "2025-01-21T23:17:15.272419"
+    },
+    {
+        "level": "INFO",
+        "message": "Plot saved to ./med-sam/models/medsam_vit_b_adam_lr0.01_bs2_both_80.0pct_21012025_training_validation_metrics.png",
+        "time": "2025-01-21T23:17:15.344767"
+    }
+]

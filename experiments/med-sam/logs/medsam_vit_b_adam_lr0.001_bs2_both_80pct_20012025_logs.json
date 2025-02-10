@@ -1,0 +1,117 @@
+[
+    {
+        "level": "INFO",
+        "message": "Using device: cuda",
+        "time": "2025-01-20T11:38:33.154233"
+    },
+    {
+        "level": "INFO",
+        "message": "Preparing dataset... (same code as original script)",
+        "time": "2025-01-20T11:38:33.154260"
+    },
+    {
+        "level": "INFO",
+        "message": "Initializing Fabric...",
+        "time": "2025-01-20T11:38:33.249385"
+    },
+    {
+        "level": "INFO",
+        "message": "Loading base SAM model checkpoint (ViT-B)...",
+        "time": "2025-01-20T11:38:33.251682"
+    },
+    {
+        "level": "INFO",
+        "message": "Training parameters:",
+        "time": "2025-01-20T11:38:33.496095"
+    },
+    {
+        "level": "INFO",
+        "message": " - lr: 0.001",
+        "time": "2025-01-20T11:38:33.496124"
+    },
+    {
+        "level": "INFO",
+        "message": " - batch_size: 2",
+        "time": "2025-01-20T11:38:33.496139"
+    },
+    {
+        "level": "INFO",
+        "message": " - epochs: 1",
+        "time": "2025-01-20T11:38:33.496152"
+    },
+    {
+        "level": "INFO",
+        "message": " - optimizer: adam",
+        "time": "2025-01-20T11:38:33.496164"
+    },
+    {
+        "level": "INFO",
+        "message": " - loss_type: both",
+        "time": "2025-01-20T11:38:33.496175"
+    },
+    {
+        "level": "INFO",
+        "message": " - scheduler: cosine",
+        "time": "2025-01-20T11:38:33.496186"
+    },
+    {
+        "level": "INFO",
+        "message": " - train_size: 80",
+        "time": "2025-01-20T11:38:33.496196"
+    },
+    {
+        "level": "INFO",
+        "message": " - accumulate_grad_steps: 1",
+        "time": "2025-01-20T11:38:33.496206"
+    },
+    {
+        "level": "INFO",
+        "message": " - image_dir: ../data/vess-map/images",
+        "time": "2025-01-20T11:38:33.496217"
+    },
+    {
+        "level": "INFO",
+        "message": " - mask_dir: ../data/vess-map/labels",
+        "time": "2025-01-20T11:38:33.496227"
+    },
+    {
+        "level": "INFO",
+        "message": " - skeleton_dir: ../data/vess-map/skeletons",
+        "time": "2025-01-20T11:38:33.496237"
+    },
+    {
+        "level": "INFO",
+        "message": " - precision: bf16-mixed",
+        "time": "2025-01-20T11:38:33.496247"
+    },
+    {
+        "level": "INFO",
+        "message": " - augment: True",
+        "time": "2025-01-20T11:38:33.496258"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 1/1",
+        "time": "2025-01-20T11:38:33.496282"
+    },
+    {
+        "level": "INFO",
+        "message": "Epoch 1, TrainLoss=1.6120, ValLoss=1.5355, ValIoU=0.0000",
+        "time": "2025-01-20T11:38:51.088783"
+    },
+    {
+        "level": "INFO",
+        "message": "Best model saved at epoch 1 with val_loss 1.5355",
+        "time": "2025-01-20T11:38:51.684074"
+    },
+    {
+        "level": "INFO",
+        "message": "Metrics saved to ./med-sam/metrics/medsam_vit_b_adam_lr0.001_bs2_both_80pct_20012025_metrics.json",
+        "time": "2025-01-20T11:38:52.209354"
+    },
+    {
+        "level": "INFO",
+        "message": "Plot saved to ./med-sam/models/medsam_vit_b_adam_lr0.001_bs2_both_80pct_20012025_training_validation_metrics.png",
+        "time": "2025-01-20T11:38:52.279456"
+    }
+]

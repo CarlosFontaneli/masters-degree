@@ -6,16 +6,20 @@ import torchvision.transforms as transforms
 import random
 import torch
 
+
 class VessMapDataset(Dataset):
-    def __init__(self, image_dir, mask_dir, skeleton_dir, image_size, apply_transform=False):
+    def __init__(self, image_dir, mask_dir, skeleton_dir, image_size, mode='train', apply_transform=False):
         self.image_dir = image_dir
         self.mask_dir = mask_dir
         self.skeleton_dir = skeleton_dir
         self.image_size = image_size
+        self.mode = mode
         self.apply_transform_flag = apply_transform
+        self.class_weights_tensor = torch.tensor([0.26, 0.74])
 
         # List all image files with .tiff or .tif extension
-        self.image_files = [f for f in os.listdir(self.image_dir) if f.endswith('.tiff') or f.endswith('.tif')]
+        self.image_files = [f for f in os.listdir(
+            self.image_dir) if f.endswith('.tiff') or f.endswith('.tif')]
         self.image_files.sort()
 
         # Find pairs of images, masks, and skeletons with matching base names
@@ -31,7 +35,8 @@ class VessMapDataset(Dataset):
             if os.path.exists(mask_path) and os.path.exists(skeleton_path):
                 self.pairs.append((img_file, mask_file, skeleton_file))
             else:
-                print(f"Warning: Missing mask or skeleton for image {img_file}")
+                print(
+                    f"Warning: Missing mask or skeleton for image {img_file}")
 
         # Load images, masks, and skeletons into lists
         self.images = []
@@ -44,9 +49,12 @@ class VessMapDataset(Dataset):
             skeleton_path = os.path.join(self.skeleton_dir, skeleton_file)
 
             # Open images
-            image = Image.open(image_path).convert('RGB')  # Convert images to RGB
-            mask = Image.open(mask_path).convert('L')      # Masks are grayscale
-            skeleton = Image.open(skeleton_path).convert('L')  # Skeletons are grayscale
+            image = Image.open(image_path).convert(
+                'RGB')  # Convert images to RGB
+            mask = Image.open(mask_path).convert(
+                'L')      # Masks are grayscale
+            skeleton = Image.open(skeleton_path).convert(
+                'L')  # Skeletons are grayscale
 
             self.images.append(image)
             self.labels.append(mask)
@@ -55,9 +63,8 @@ class VessMapDataset(Dataset):
     def __len__(self):
         return len(self.pairs)
 
-    def apply_transform(self, image, mask, skeleton):
+    def apply_transform(self, image, mask, skeleton, seed=42):
         # For consistent transformations
-        seed = random.randint(0, 2**32)
         random.seed(seed)
         torch.manual_seed(seed)
 
@@ -99,8 +106,8 @@ class VessMapDataset(Dataset):
         mask = self.labels[idx]
         skeleton = self.skeletons[idx]
 
-        # Apply transformations
-        if self.apply_transform_flag:
+        # Apply transformations only if in train mode and apply_transform_flag is True
+        if self.mode == 'train' and self.apply_transform_flag:
             image, mask, skeleton = self.apply_transform(image, mask, skeleton)
         else:
             # Convert to tensor without applying random transforms
@@ -110,19 +117,43 @@ class VessMapDataset(Dataset):
 
         return image, mask, skeleton
 
-
-    def vess_map_dataloader(
-        self, batch_size, train_size, shuffle=True
-    ):
+    def vess_map_dataloader(self, batch_size, train_size, shuffle=True):
         dataset_size = len(self)
         train_len = int(train_size * dataset_size)
         val_len = dataset_size - train_len
 
-        # Split the current dataset into train and validation/test datasets
-        train_dataset, test_dataset = random_split(self, [train_len, val_len])
+        # Split indices into train and test
+        indices = list(range(dataset_size))
+        train_indices = indices[:train_len]
+        test_indices = indices[train_len:]
+
+        # Create separate instances of the dataset for train and test
+        train_dataset = VessMapDataset(
+            image_dir=self.image_dir,
+            mask_dir=self.mask_dir,
+            skeleton_dir=self.skeleton_dir,
+            image_size=self.image_size,
+            mode='train',  # Set mode to 'train' for the training dataset
+            apply_transform=self.apply_transform_flag
+        )
+
+        test_dataset = VessMapDataset(
+            image_dir=self.image_dir,
+            mask_dir=self.mask_dir,
+            skeleton_dir=self.skeleton_dir,
+            image_size=self.image_size,
+            mode='test',  # Set mode to 'test' for the test dataset
+            apply_transform=False  # Ensure no transformations are applied to the test dataset
+        )
+
+        # Use the indices to create subsets
+        train_dataset = torch.utils.data.Subset(train_dataset, train_indices)
+        test_dataset = torch.utils.data.Subset(test_dataset, test_indices)
 
         # Create DataLoaders for train and test datasets
-        train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=shuffle)
-        test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+        train_loader = DataLoader(
+            train_dataset, batch_size=batch_size, shuffle=shuffle)
+        test_loader = DataLoader(
+            test_dataset, batch_size=batch_size, shuffle=False)
 
         return train_loader, test_loader
