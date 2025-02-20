@@ -1,8 +1,9 @@
-#!/usr/bin/env python3
 import os
 import shutil
 import json
 import random
+from PIL import Image
+import numpy as np
 
 raw_data_dir = '/home/fonta42/Desktop/masters-degree/data/vess-map'
 target_dir = '/home/fonta42/Desktop/masters-degree/data/vess-map-umamba'
@@ -14,7 +15,7 @@ labels_source = os.path.join(raw_data_dir, 'labels')
 imagesTr_dir = os.path.join(target_dir, 'imagesTr')
 labelsTr_dir = os.path.join(target_dir, 'labelsTr')
 imagesTs_dir = os.path.join(target_dir, 'imagesTs')
-labelsTs_dir = os.path.join(target_dir, 'labelsTs')  
+labelsTs_dir = os.path.join(target_dir, 'labelsTs')
 
 os.makedirs(imagesTr_dir, exist_ok=True)
 os.makedirs(labelsTr_dir, exist_ok=True)
@@ -34,41 +35,53 @@ test_files = all_image_files[num_train:]
 
 print(f"Total cases: {num_total}, Training: {len(train_files)}, Validation: {len(test_files)}")
 
+# Process training cases
 for img_file in train_files:
-    # Use the filename (without extension) as the unique case identifier
     case_id = os.path.splitext(img_file)[0]
-    
+
     src_img_path = os.path.join(images_source, img_file)
     src_label_path = os.path.join(labels_source, case_id + '.png')
-    
-    # For nnU-Net, single-channel images are stored as {CASE_ID}_0000.<ext>
+
     target_img_name = f"{case_id}_0000.png"
     target_label_name = f"{case_id}.png"
-    
-    shutil.copy(src_img_path, os.path.join(imagesTr_dir, target_img_name))
-    
+
+    # Open the image, convert to grayscale ('L') and save
+    image = Image.open(src_img_path).convert('L')
+    image.save(os.path.join(imagesTr_dir, target_img_name))
+
     if os.path.exists(src_label_path):
-        shutil.copy(src_label_path, os.path.join(labelsTr_dir, target_label_name))
+        # Open label, convert to grayscale, and normalize (set nonzero to 1)
+        label_img = Image.open(src_label_path).convert('L')
+        label_arr = np.array(label_img)
+        label_arr[label_arr > 0] = 1
+        normalized_label = Image.fromarray(label_arr.astype(np.uint8))
+        normalized_label.save(os.path.join(labelsTr_dir, target_label_name))
     else:
         print(f"Warning: Label not found for training case {case_id}")
 
+# Process validation cases
 for img_file in test_files:
     case_id = os.path.splitext(img_file)[0]
-    
+
     src_img_path = os.path.join(images_source, img_file)
     src_label_path = os.path.join(labels_source, case_id + '.png')
-    
+
     target_img_name = f"{case_id}_0000.png"
     target_label_name = f"{case_id}.png"
-    
-    shutil.copy(src_img_path, os.path.join(imagesTs_dir, target_img_name))
-    
+
+    image = Image.open(src_img_path).convert('L')
+    image.save(os.path.join(imagesTs_dir, target_img_name))
+
     if os.path.exists(src_label_path):
-        shutil.copy(src_label_path, os.path.join(labelsTs_dir, target_label_name))
+        label_img = Image.open(src_label_path).convert('L')
+        label_arr = np.array(label_img)
+        label_arr[label_arr > 0] = 1
+        normalized_label = Image.fromarray(label_arr.astype(np.uint8))
+        normalized_label.save(os.path.join(labelsTs_dir, target_label_name))
     else:
         print(f"Warning: Label not found for validation case {case_id}")
 
-# This file contains metadata needed by nnU-Net. Note that "numTraining" refers to the number of training cases
+# Create dataset.json metadata file
 dataset_json = {
     "channel_names": {
         "0": "Grayscale"
