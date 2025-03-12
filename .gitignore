@@ -63,3 +63,7 @@ MedSAM/work_dir/MedSAM/medsam_text_prompt_flare22.pth
 MedSAM/work_dir/MedSAM/medsam_point_prompt_flare22.pth
 MedSAM/work_dir/MedSAM/medsam_vit_b.pth
 MedSAM/work_dir/MedSAM/drive-download-20241128T120835Z-001.zip
+umamba/
+U-Mamba/
+MedSAM/
+data/vess-map-umamba
