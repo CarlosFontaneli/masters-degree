@@ -4,6 +4,7 @@ import json
 import datetime
 import argparse
 import logging
+import time
 
 import torch
 import torch.nn as nn
@@ -276,7 +277,7 @@ def train_medsam(args):
                 {'params': medsam_model.image_encoder.parameters()},
                 {'params': medsam_model.mask_decoder.parameters()}
             ],
-            lr=args.lr, momentum=0.9
+            lr=args.lr, momentum=args.momentum
         )
     elif args.optimizer == "adam":
         optimizer = optim.Adam(
@@ -313,6 +314,12 @@ def train_medsam(args):
     for epoch in range(args.epochs):
         log_message(logging.INFO, f"Epoch {epoch+1}/{args.epochs}")
 
+        # Record start time and VRAM usage (if CUDA)
+        epoch_start = time.time()
+        if device.type == "cuda":
+            vram_before = torch.cuda.memory_allocated(device)
+            
+            
         train_loss = train_one_epoch(
             model=medsam_model,
             dataloader=train_loader,
@@ -325,6 +332,15 @@ def train_medsam(args):
             clip_grad=True,
             fabric=fabric
         )
+        
+        epoch_time = time.time() - epoch_start
+        if device.type == "cuda":
+            vram_after = torch.cuda.memory_allocated(device)
+            log_message(logging.INFO, 
+                        f"Epoch {epoch+1} training time: {epoch_time:.2f} sec, VRAM before: {vram_before/1e6:.2f} MB, after: {vram_after/1e6:.2f} MB")
+        else:
+            log_message(logging.INFO, f"Epoch {epoch+1} training time: {epoch_time:.2f} sec")
+            
         train_losses.append(train_loss)
 
         val_loss, val_dice = validate(
@@ -393,17 +409,18 @@ def get_args():
         description="Fine tune a MEDSAM on the VessMapDataset."
     )
     parser.add_argument("--lr", type=float, default=1e-3, help="Learning rate")
-    parser.add_argument("--batch_size", type=int, default=2, help="Batch size")
-    parser.add_argument("--epochs", type=int, default=1, help="Number of epochs")
-    parser.add_argument("--optimizer", type=str, default="adam", choices=["sgd","adam"], help="Optimizer choice")
-    parser.add_argument("--loss_type", type=str, default="both", choices=["dice","ce","both"], help="Loss type")
-    parser.add_argument("--scheduler", type=str, default="cosine", choices=["cosine","none"], help="Scheduler type")
+    parser.add_argument("--batch_size", type=int, default=80, help="Batch size")
+    parser.add_argument("--epochs", type=int, default=2, help="Number of epochs")
+    parser.add_argument("--optimizer", type=str, default="adam", choices=["sgd", "adam"], help="Optimizer choice")
+    parser.add_argument("--momentum", type=float, default=0.9, help="Momentum (for SGD optimizer)")
+    parser.add_argument("--loss_type", type=str, default="both", choices=["dice", "ce", "both"], help="Loss type")
+    parser.add_argument("--scheduler", type=str, default="none", choices=["cosine", "none"], help="Scheduler type")
     parser.add_argument("--train_size", type=float, default=80, help="Train/validation split ratio as a percentage")
-    parser.add_argument("--accumulate_grad_steps", type=int, default=1, help="Accumulate grad steps")
+    parser.add_argument("--image_size", type=int, default=256, help="Final cropped image size for data augmentation")
+    parser.add_argument("--accumulate_grad_steps", type=int, default=1, help="Accumulate grad steps before optimizer step")
     parser.add_argument("--image_dir", type=str, default="../data/vess-map/images", help="Images directory")
     parser.add_argument("--mask_dir", type=str, default="../data/vess-map/labels", help="Labels directory")
     parser.add_argument("--skeleton_dir", type=str, default="../data/vess-map/skeletons", help="Skeleton directory")
-    parser.add_argument("--precision", type=str, default="bf16-mixed", choices=["bf16-mixed","32-true"], help="Fabric precision")
     parser.add_argument("--augment", type=bool, default=True, help="Apply random data augmentation")
     return parser.parse_args()
 

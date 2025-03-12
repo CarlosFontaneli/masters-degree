@@ -5,6 +5,7 @@ import json
 import datetime
 import argparse
 import logging
+import time
 
 import torch
 import torch.nn as nn
@@ -74,7 +75,7 @@ def save_comparison_plot(original_img, bin_pred, diff_mask, epoch, batch_idx, mo
     if torch.is_tensor(bin_pred):
         bin_pred = bin_pred.cpu().numpy()
     original_img = np.transpose(original_img, (1, 2, 0))
-    output_dir = f"./umamba/validation-diff-masks/{model_name}_validation-diff-masks"
+    output_dir = f"./u-mamba/validation-diff-masks/{model_name}_validation-diff-masks"
     os.makedirs(output_dir, exist_ok=True)
     
     fig, axs = plt.subplots(1, 3, figsize=(12, 4))
@@ -228,7 +229,7 @@ def train_umamba(args):
 
     # Choose optimizer
     if args.optimizer == "sgd":
-        optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=0.9)
+        optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum)
     elif args.optimizer == "adam":
         optimizer = optim.Adam(model.parameters(), lr=args.lr)
     else:
@@ -256,6 +257,12 @@ def train_umamba(args):
 
     for epoch in range(args.epochs):
         log_message(logging.INFO, f"Starting epoch {epoch+1}/{args.epochs}")
+        
+        # Record start time and VRAM usage (if CUDA)
+        epoch_start = time.time()
+        if device.type == "cuda":
+            vram_before = torch.cuda.memory_allocated(device)
+            
         train_loss = train_one_epoch(
             model=model,
             dataloader=train_loader,
@@ -267,6 +274,15 @@ def train_umamba(args):
             accumulate_grad_steps=args.accumulate_grad_steps,
             clip_grad=True
         )
+        
+        epoch_time = time.time() - epoch_start
+        if device.type == "cuda":
+            vram_after = torch.cuda.memory_allocated(device)
+            log_message(logging.INFO, 
+                        f"Epoch {epoch+1} training time: {epoch_time:.2f} sec, VRAM before: {vram_before/1e6:.2f} MB, after: {vram_after/1e6:.2f} MB")
+        else:
+            log_message(logging.INFO, f"Epoch {epoch+1} training time: {epoch_time:.2f} sec")
+        
         train_losses.append(train_loss)
 
         val_loss, val_dice = validate(
@@ -289,18 +305,18 @@ def train_umamba(args):
 
         if val_loss < best_loss:
             best_loss = val_loss
-            os.makedirs("./umamba/models", exist_ok=True)
-            torch.save(model.state_dict(), f"./umamba/models/{model_name}_best.pth")
+            os.makedirs("./u-mamba/models", exist_ok=True)
+            torch.save(model.state_dict(), f"./u-mamba/models/{model_name}_best.pth")
             log_message(logging.INFO, f"Best model saved at epoch {epoch+1} with val_loss {best_loss:.4f}")
 
-        torch.save(model.state_dict(), f"./umamba/models/{model_name}_latest.pth")
+        torch.save(model.state_dict(), f"./u-mamba/models/{model_name}_latest.pth")
 
     # Save metrics and plot results
     metrics = {"train_losses": train_losses, "val_losses": val_losses, "val_dices": val_dices}
-    os.makedirs("./umamba/metrics", exist_ok=True)
-    with open(f"./umamba/metrics/{model_name}_metrics.json", "w") as f:
+    os.makedirs("./u-mamba/metrics", exist_ok=True)
+    with open(f"./u-mamba/metrics/{model_name}_metrics.json", "w") as f:
         json.dump(metrics, f, indent=4)
-    log_message(logging.INFO, f"Metrics saved to ./umamba/metrics/{model_name}_metrics.json")
+    log_message(logging.INFO, f"Metrics saved to ./u-mamba/metrics/{model_name}_metrics.json")
 
     fig, ax1 = plt.subplots(figsize=(10, 5))
     ax1.set_xlabel("Epoch")
@@ -317,15 +333,15 @@ def train_umamba(args):
     ax1.legend(lines, labels, loc="upper center")
     plt.title("Training & Validation Loss and Dice Over Epochs")
     plt.grid(True)
-    os.makedirs("./umamba/metrics", exist_ok=True)
-    plt.savefig(f"./umamba/metrics/{model_name}_training_validation_metrics.png")
+    os.makedirs("./u-mamba/metrics", exist_ok=True)
+    plt.savefig(f"./u-mamba/metrics/{model_name}_training_validation_metrics.png")
     plt.close(fig)
-    log_message(logging.INFO, f"Plot saved to ./umamba/metrics/{model_name}_training_validation_metrics.png")
+    log_message(logging.INFO, f"Plot saved to ./u-mamba/metrics/{model_name}_training_validation_metrics.png")
 
-    os.makedirs("./umamba/logs", exist_ok=True)
-    with open(f"./umamba/logs/{model_name}_logs.json", "w") as f:
+    os.makedirs("./u-mamba/logs", exist_ok=True)
+    with open(f"./u-mamba/logs/{model_name}_logs.json", "w") as f:
         json.dump(LOG_RECORDS, f, indent=4)
-    log_message(logging.INFO, f"Logs saved to ./umamba/logs/{model_name}_logs.json")
+    log_message(logging.INFO, f"Logs saved to ./u-mamba/logs/{model_name}_logs.json")
 
 # -------------------------------
 # Argument Parsing
@@ -333,18 +349,19 @@ def train_umamba(args):
 def get_args():
     parser = argparse.ArgumentParser(description="Train a UMamba model on the VessMapDataset.")
     parser.add_argument("--lr", type=float, default=1e-3, help="Learning rate")
-    parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
-    parser.add_argument("--epochs", type=int, default=5, help="Number of epochs")
+    parser.add_argument("--batch_size", type=int, default=80, help="Batch size")
+    parser.add_argument("--epochs", type=int, default=2, help="Number of epochs")
     parser.add_argument("--optimizer", type=str, default="adam", choices=["sgd", "adam"], help="Optimizer choice")
+    parser.add_argument("--momentum", type=float, default=0.9, help="Momentum (for SGD optimizer)")
     parser.add_argument("--loss_type", type=str, default="both", choices=["dice", "ce", "both"], help="Loss type")
-    parser.add_argument("--scheduler", type=str, default="cosine", choices=["cosine", "none"], help="Scheduler type")
-    parser.add_argument("--train_size", type=float, default=80, help="Train split ratio (percentage)")
-    parser.add_argument("--accumulate_grad_steps", type=int, default=1, help="Accumulate grad steps")
-    parser.add_argument("--image_size", type=int, default=256, help="Final cropped image size")
+    parser.add_argument("--scheduler", type=str, default="none", choices=["cosine", "none"], help="Scheduler type")
+    parser.add_argument("--train_size", type=float, default=80, help="Train/validation split ratio as a percentage")
+    parser.add_argument("--image_size", type=int, default=256, help="Final cropped image size for data augmentation")
+    parser.add_argument("--accumulate_grad_steps", type=int, default=1, help="Accumulate grad steps before optimizer step")
     parser.add_argument("--image_dir", type=str, default="../data/vess-map/images", help="Images directory")
     parser.add_argument("--mask_dir", type=str, default="../data/vess-map/labels", help="Labels directory")
     parser.add_argument("--skeleton_dir", type=str, default="../data/vess-map/skeletons", help="Skeleton directory")
-    parser.add_argument("--augment", type=bool, default=True, help="Apply data augmentation")
+    parser.add_argument("--augment", type=bool, default=True, help="Apply random data augmentation")
     return parser.parse_args()
 
 if __name__ == "__main__":
