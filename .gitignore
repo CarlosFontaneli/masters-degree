@@ -67,3 +67,11 @@ umamba/
 U-Mamba/
 MedSAM/
 data/vess-map-umamba
+data/torch-trainer
+envs/
+torchtrainer/
+/experiments/torch-trainer/medsam_runs
+/experiments/torch-trainer/umamba_runs
+/experiments/torch-trainer/unet_runs
+experiments/u-mamba/models
+experiments/metrics_overview
