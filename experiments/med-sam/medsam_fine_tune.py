@@ -4,7 +4,6 @@ import json
 import datetime
 import argparse
 import logging
-import time
 
 import torch
 import torch.nn as nn
@@ -42,22 +41,15 @@ def log_message(level, message):
     })
 
 # -------------------------------
-# Dice Metric for Binary Segmentation
+# IoU / Metrics
 # -------------------------------
-def compute_dice(preds, targets):
-    """
-    Compute the Dice coefficient for binary predictions (0/1).
-    preds, targets: shape [B, 1, H, W], with 0/1 values.
-    """
+def compute_iou(preds, targets):
     preds = preds.long()
     targets = targets.long()
-
-    # Intersection over batch
-    intersection = (preds & targets).sum(dim=(2,3)).float()  # [B]
-    # Sum of predictions + sum of targets
-    union = preds.sum(dim=(2,3)).float() + targets.sum(dim=(2,3)).float() + 1e-6  # [B]
-    dice = (2.0 * intersection / union).mean()  # average across batch
-    return dice.item()
+    intersection = (preds & targets).sum(dim=(2,3))
+    union = (preds | targets).sum(dim=(2,3))
+    iou = (intersection.float() / (union.float() + 1e-6)).mean()
+    return iou.item()
 
 # -------------------------------
 # Loss Combination
@@ -110,97 +102,65 @@ def train_one_epoch(model, dataloader, device, optimizer,
 # -------------------------------
 # Visualization of Differences
 # -------------------------------
-def create_difference_mask(bin_preds, bin_targets):
-    b, _, h, w = bin_preds.shape
-    diff_masks = np.zeros((b, h, w, 3), dtype=np.uint8)
+def save_difference_mask(bin_preds, bin_targets, epoch, batch_idx, save_dir="diff_masks"):
+    os.makedirs(save_dir, exist_ok=True)
 
-    for idx in range(b):
-        bin_pred = bin_preds[idx, 0]
-        bin_tgt  = bin_targets[idx, 0]
+    # Extract the first sample
+    bin_pred = bin_preds[0, 0]  # shape (H, W)
+    bin_tgt = bin_targets[0, 0] # shape (H, W)
 
-        tp = (bin_pred == 1) & (bin_tgt == 1)
-        fp = (bin_pred == 1) & (bin_tgt == 0)
-        fn = (bin_pred == 0) & (bin_tgt == 1)
+    # TP == (1,1), FP == (1,0), FN == (0,1)
+    # Build a (H, W, 3) array for RGB
+    h, w = bin_pred.shape
+    diff_mask = np.zeros((h, w, 3), dtype=np.uint8)
 
-        diff_masks[idx][tp] = [0, 255, 0]       # Green
-        diff_masks[idx][fp] = [255, 255, 0]     # Yellow
-        diff_masks[idx][fn] = [255, 0, 0]       # Red
-    return diff_masks
+    tp = (bin_pred == 1) & (bin_tgt == 1)
+    fp = (bin_pred == 1) & (bin_tgt == 0)
+    fn = (bin_pred == 0) & (bin_tgt == 1)
 
-def save_comparison_plot(original_img, bin_pred, diff_mask, epoch, batch_idx, model_name):
-    if torch.is_tensor(original_img):
-        original_img = original_img.cpu().numpy()
-    if torch.is_tensor(bin_pred):
-        bin_pred = bin_pred.cpu().numpy()
+    # Color coding
+    # TP == green == (0,255,0)
+    diff_mask[tp] = [0, 255, 0]
+    # FP == yellow == (255,255,0)
+    diff_mask[fp] = [255, 255, 0]
+    # FN == red == (255,0,0)
+    diff_mask[fn] = [255, 0, 0] # TN == remain black == (0,0,0)
 
-    original_img = np.transpose(original_img, (1, 2, 0))
-
-    output_dir = f"./med-sam/validation-diff-masks/{model_name}_validation-diff-masks"
-    os.makedirs(output_dir, exist_ok=True)
-
-    fig, axs = plt.subplots(1, 3, figsize=(12, 4))
-    axs[0].imshow(original_img, cmap="gray")
-    axs[0].set_title("Original Image")
-    axs[0].axis("off")
-
-    axs[1].imshow(bin_pred, cmap="gray")
-    axs[1].set_title("Prediction")
-    axs[1].axis("off")
-
-    axs[2].imshow(diff_mask)
-    axs[2].set_title("Diff Mask")
-    axs[2].axis("off")
-
-    plt.tight_layout()
-    save_path = os.path.join(output_dir, f"comparison_epoch{epoch}_batch{batch_idx}.png")
-    plt.savefig(save_path)
-    plt.close(fig)
+    img_name = f"./med-sam/validation-diff-masks/diffmask_epoch{epoch}_batch{batch_idx}.png"
+    save_path = os.path.join(save_dir, img_name)
+    Image.fromarray(diff_mask).save(save_path)
 
 # -------------------------------
 # Validation Loop
 # -------------------------------
-def validate(model, dataloader, device, seg_loss_func, ce_loss_func, loss_type, epoch=0, model_name="default_model"):
+def validate(model, dataloader, device, seg_loss_func, ce_loss_func, loss_type, epoch=0):
     model.eval()
     val_loss = 0.0
-    val_dice = 0.0
+    val_iou = 0.0
     count = 0
 
     with torch.no_grad():
-        for batch_idx, (images, masks, _, b_box) in enumerate(tqdm(dataloader, desc="Validating")):
+        for batch_idx, (images, masks, skeletons, bboxes) in enumerate(tqdm(dataloader, desc="Validating")):
             images = images.to(device)
             masks = masks.to(device)
+            bboxes_np = bboxes.cpu().numpy()
 
-            preds = model(images, b_box)
+            preds = model(images, bboxes_np)
             loss = compute_loss(preds, masks, seg_loss_func, ce_loss_func, loss_type)
             val_loss += loss.item()
 
             probs = torch.sigmoid(preds)
             bin_preds = (probs > 0.5).float()
             bin_masks = (masks > 0.5).float()
-            dice_val = compute_dice(bin_preds, bin_masks)
-            val_dice += dice_val
+            iou = compute_iou(bin_preds, bin_masks.unsqueeze(1))
+            val_iou += iou
             count += 1
 
-        if epoch % 50 == 0 and epoch != 0:
-            diff_masks = create_difference_mask(
-                bin_preds.cpu().numpy(), 
-                bin_masks.cpu().numpy()
-            )
+            # Save the difference mask for the last batch in each epoch
+            if batch_idx == len(dataloader):
+                save_difference_mask(bin_preds, bin_masks.unsqueeze(1), epoch, batch_idx)
 
-            first_original = images[0]
-            first_bin_pred = bin_preds[0, 0]
-            first_diff_mask = diff_masks[0]
-
-            save_comparison_plot(
-                original_img=first_original, 
-                bin_pred=first_bin_pred, 
-                diff_mask=first_diff_mask, 
-                epoch=epoch, 
-                batch_idx=batch_idx,
-                model_name=model_name
-            )
-
-    return val_loss / count, val_dice / count
+    return val_loss / count, val_iou / count
 
 # -------------------------------
 # Model Definition (MedSAM)
@@ -212,6 +172,7 @@ class MedSAM(nn.Module):
         self.mask_decoder = sam_model.mask_decoder
         self.prompt_encoder = sam_model.prompt_encoder
 
+        # Freeze prompt encoder
         for param in self.prompt_encoder.parameters():
             param.requires_grad = False
 
@@ -252,16 +213,19 @@ def train_medsam(args):
     image_dir = args.image_dir
     mask_dir = args.mask_dir
     skeleton_dir = args.skeleton_dir
-    vess_dataset = VessMapDataset(image_dir, mask_dir, skeleton_dir, apply_transform=args.augment)
+    image_size = 1024  
+    vess_dataset = VessMapDataset(image_dir, mask_dir, skeleton_dir, image_size, apply_transform=args.augment)
 
     train_loader, test_loader = vess_dataset.vess_map_dataloader(
         batch_size=args.batch_size, train_size=args.train_size / 100
     )
 
     class_weight_tensor = vess_dataset.class_weights_tensor
+    #TODO: confirm if the weights are right
     ce_loss_func = nn.BCEWithLogitsLoss(pos_weight=class_weight_tensor[1]/class_weight_tensor[0], reduction="mean")
     seg_loss_func = monai.losses.DiceLoss(
         sigmoid=True, squared_pred=True, reduction="mean")
+    
 
     log_message(logging.INFO, "Initializing Fabric...")
     fabric = L.Fabric(accelerator="cuda", devices=1, precision=args.precision)
@@ -277,7 +241,7 @@ def train_medsam(args):
                 {'params': medsam_model.image_encoder.parameters()},
                 {'params': medsam_model.mask_decoder.parameters()}
             ],
-            lr=args.lr, momentum=args.momentum
+            lr=args.lr, momentum=0.9
         )
     elif args.optimizer == "adam":
         optimizer = optim.Adam(
@@ -308,18 +272,12 @@ def train_medsam(args):
     date_str = datetime.datetime.now().strftime("%d%m%Y")
     model_name = f"medsam_vit_b_{args.optimizer}_lr{args.lr}_bs{args.batch_size}_{args.loss_type}_{args.train_size}pct_{date_str}"
 
-    train_losses, val_losses, val_dices = [], [], []
+    train_losses, val_losses, val_ious = [], [], []
     best_loss = float("inf")
 
     for epoch in range(args.epochs):
         log_message(logging.INFO, f"Epoch {epoch+1}/{args.epochs}")
 
-        # Record start time and VRAM usage (if CUDA)
-        epoch_start = time.time()
-        if device.type == "cuda":
-            vram_before = torch.cuda.memory_allocated(device)
-            
-            
         train_loss = train_one_epoch(
             model=medsam_model,
             dataloader=train_loader,
@@ -332,31 +290,21 @@ def train_medsam(args):
             clip_grad=True,
             fabric=fabric
         )
-        
-        epoch_time = time.time() - epoch_start
-        if device.type == "cuda":
-            vram_after = torch.cuda.memory_allocated(device)
-            log_message(logging.INFO, 
-                        f"Epoch {epoch+1} training time: {epoch_time:.2f} sec, VRAM before: {vram_before/1e6:.2f} MB, after: {vram_after/1e6:.2f} MB")
-        else:
-            log_message(logging.INFO, f"Epoch {epoch+1} training time: {epoch_time:.2f} sec")
-            
         train_losses.append(train_loss)
 
-        val_loss, val_dice = validate(
+        val_loss, val_iou = validate(
             model=medsam_model,
             dataloader=test_loader,
             device=device,
             seg_loss_func=seg_loss_func,
             ce_loss_func=ce_loss_func,
             loss_type=args.loss_type,
-            epoch=epoch,
-            model_name=model_name
+            epoch=epoch
         )
         val_losses.append(val_loss)
-        val_dices.append(val_dice)
+        val_ious.append(val_iou)
 
-        log_message(logging.INFO, f"Epoch {epoch+1}, TrainLoss={train_loss:.4f}, ValLoss={val_loss:.4f}, ValDice={val_dice:.4f}")
+        log_message(logging.INFO, f"Epoch {epoch+1}, TrainLoss={train_loss:.4f}, ValLoss={val_loss:.4f}, ValIoU={val_iou:.4f}")
 
         if scheduler is not None:
             scheduler.step()
@@ -367,12 +315,12 @@ def train_medsam(args):
             log_message(logging.INFO, f"Best model saved at epoch {epoch+1} with val_loss {best_loss:.4f}")
 
         # Save latest
-        fabric.save(f"./med-sam/models/{model_name}_latest.pth", {"model": medsam_model.state_dict()})
+        fabric.save(f"./med-sam//models/{model_name}_latest.pth", {"model": medsam_model.state_dict()})
 
     metrics = {
         "train_losses": train_losses,
         "val_losses": val_losses,
-        "val_dices": val_dices
+        "val_ious": val_ious
     }
     os.makedirs("./med-sam/metrics", exist_ok=True)
     with open(f"./med-sam/metrics/{model_name}_metrics.json", "w") as f:
@@ -386,13 +334,13 @@ def train_medsam(args):
     l2 = ax1.plot(range(1, args.epochs + 1), val_losses, label='Val Loss', color='tab:blue', linestyle='--')
     ax1.tick_params(axis='y', labelcolor='tab:blue')
     ax2 = ax1.twinx()
-    ax2.set_ylabel('Val Dice', color='tab:red')
-    l3 = ax2.plot(range(1, args.epochs + 1), val_dices, label='Val Dice', color='tab:red', linestyle='-')
+    ax2.set_ylabel('Val IoU', color='tab:red')
+    l3 = ax2.plot(range(1, args.epochs + 1), val_ious, label='Val IoU', color='tab:red', linestyle='-')
     ax2.tick_params(axis='y', labelcolor='tab:red')
     lines = l1 + l2 + l3
     labels = [l.get_label() for l in lines]
     ax1.legend(lines, labels, loc='upper center')
-    plt.title('Training & Validation Loss and Dice Over Epochs')
+    plt.title('Training & Validation Loss and IoU Over Epochs')
     plt.grid(True)
     os.makedirs("./med-sam/models", exist_ok=True)
     plt.savefig(f"./med-sam/models/{model_name}_training_validation_metrics.png")
@@ -409,18 +357,17 @@ def get_args():
         description="Fine tune a MEDSAM on the VessMapDataset."
     )
     parser.add_argument("--lr", type=float, default=1e-3, help="Learning rate")
-    parser.add_argument("--batch_size", type=int, default=80, help="Batch size")
-    parser.add_argument("--epochs", type=int, default=2, help="Number of epochs")
-    parser.add_argument("--optimizer", type=str, default="adam", choices=["sgd", "adam"], help="Optimizer choice")
-    parser.add_argument("--momentum", type=float, default=0.9, help="Momentum (for SGD optimizer)")
-    parser.add_argument("--loss_type", type=str, default="both", choices=["dice", "ce", "both"], help="Loss type")
-    parser.add_argument("--scheduler", type=str, default="none", choices=["cosine", "none"], help="Scheduler type")
+    parser.add_argument("--batch_size", type=int, default=2, help="Batch size")
+    parser.add_argument("--epochs", type=int, default=500, help="Number of epochs")
+    parser.add_argument("--optimizer", type=str, default="adam", choices=["sgd","adam"], help="Optimizer choice")
+    parser.add_argument("--loss_type", type=str, default="both", choices=["dice","ce","both"], help="Loss type")
+    parser.add_argument("--scheduler", type=str, default="cosine", choices=["cosine","none"], help="Scheduler type")
     parser.add_argument("--train_size", type=float, default=80, help="Train/validation split ratio as a percentage")
-    parser.add_argument("--image_size", type=int, default=256, help="Final cropped image size for data augmentation")
-    parser.add_argument("--accumulate_grad_steps", type=int, default=1, help="Accumulate grad steps before optimizer step")
+    parser.add_argument("--accumulate_grad_steps", type=int, default=1, help="Accumulate grad steps")
     parser.add_argument("--image_dir", type=str, default="../data/vess-map/images", help="Images directory")
     parser.add_argument("--mask_dir", type=str, default="../data/vess-map/labels", help="Labels directory")
     parser.add_argument("--skeleton_dir", type=str, default="../data/vess-map/skeletons", help="Skeleton directory")
+    parser.add_argument("--precision", type=str, default="bf16-mixed", choices=["bf16-mixed","32-true"], help="Fabric precision")
     parser.add_argument("--augment", type=bool, default=True, help="Apply random data augmentation")
     return parser.parse_args()
 

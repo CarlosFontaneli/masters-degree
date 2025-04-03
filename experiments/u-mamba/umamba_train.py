@@ -158,15 +158,15 @@ def validate(model, dataloader, device, seg_loss_func, ce_loss_func, loss_type, 
 # -------------------------------
 # Simple Configuration for UMamba Model
 # -------------------------------
-input_size = (256, 256)            # Input patch size
-input_channels = 3                 # RGB images
-n_stages = 4                       # Number of stages in the encoder/decoder
-features_per_stage = [32, 64, 128, 256]  # Feature channels per stage
-kernel_sizes = [[3, 3]] * n_stages       # 3x3 convolutions at each stage
-# Define strides (e.g., no downsampling at first stage, then downsample by factor of 2)
-strides = [[1, 1], [2, 2], [2, 2], [2, 2]]
-n_conv_per_stage = 2               # Number of convolutional blocks per encoder stage
-n_conv_per_stage_decoder = 2       # Number of convolutional blocks per decoder stage
+input_size = (256, 256)           # Image patch size
+in_channels = 3                   # RGB images
+n_stages = 5                      # 4-stage encoder/decoder
+# Increase feature channels to boost capacity (compared to default lighter config)
+features_per_stage = [64, 128, 256, 512, 1024]  # Up from [64, 128, 256, 512]
+kernel_sizes = [[3, 3]] * n_stages       
+strides = [[1, 1], [2, 2], [2, 2], [2, 2], [2, 2]]
+n_conv_per_stage = 1              
+n_conv_per_stage_decoder = 1      
 num_classes = 1                    # For binary segmentation
 conv_op = nn.Conv2d               # Use standard 2D convolutions
 norm_op = nn.InstanceNorm2d       # InstanceNorm is commonly used
@@ -205,7 +205,7 @@ def train_umamba(args):
    # Create the U-Mamba model instance directly:
     model = UMambaEnc(
         input_size=input_size,
-        input_channels=input_channels,
+        input_channels=in_channels,
         n_stages=n_stages,
         features_per_stage=features_per_stage,
         conv_op=conv_op,
@@ -261,7 +261,7 @@ def train_umamba(args):
         # Record start time and VRAM usage (if CUDA)
         epoch_start = time.time()
         if device.type == "cuda":
-            vram_before = torch.cuda.memory_allocated(device)
+            vram_before = torch.cuda.memory_allocated(device) # TODO: mudar ou pesquisar sobre max memory allocated;
             
         train_loss = train_one_epoch(
             model=model,
@@ -349,7 +349,7 @@ def train_umamba(args):
 def get_args():
     parser = argparse.ArgumentParser(description="Train a UMamba model on the VessMapDataset.")
     parser.add_argument("--lr", type=float, default=1e-3, help="Learning rate")
-    parser.add_argument("--batch_size", type=int, default=80, help="Batch size")
+    parser.add_argument("--batch_size", type=int, default=2, help="Batch size")
     parser.add_argument("--epochs", type=int, default=2, help="Number of epochs")
     parser.add_argument("--optimizer", type=str, default="adam", choices=["sgd", "adam"], help="Optimizer choice")
     parser.add_argument("--momentum", type=float, default=0.9, help="Momentum (for SGD optimizer)")
