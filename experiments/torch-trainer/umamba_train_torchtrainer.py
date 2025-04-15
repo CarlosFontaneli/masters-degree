@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+
 # Import necessary components from torchtrainer
 from torchtrainer.train import DefaultTrainer
 from torchtrainer.util.train_util import (
@@ -9,10 +10,13 @@ from torchtrainer.util.train_util import (
     WrapDict,
 )
 from torchtrainer.metrics.confusion_metrics import ConfusionMatrixMetrics
+
 # Import the VessMAP dataset loader
 from torchtrainer.datasets.vessel import get_dataset_vessmap_train
+
 # Import UMamba model helper
 import sys
+
 sys.path.append("/home/fonta42/Desktop/masters-degree/U-Mamba")
 from umamba.nnunetv2.nets.UMambaEnc_2d import UMambaEnc
 
@@ -45,12 +49,28 @@ class UMambaTrainer(DefaultTrainer):
         augmentation_strategy,
         **dataset_params,
     ):
-        ds_train, ds_valid, class_weights, ignore_index, collate_fn = (
-            get_dataset_vessmap_train(
-                dataset_path, split_strategy=split_strategy, resize_size=resize_size
+        if dataset_class == "vessmap":
+            from torchtrainer.datasets.vessel import get_dataset_vessmap_train
+
+            ds_train, ds_valid, class_weights, ignore_index, collate_fn = (
+                get_dataset_vessmap_train(
+                    dataset_path,
+                    split_strategy=split_strategy,
+                    resize_size=resize_size,  # TODO: mudar quando for usar
+                )
             )
-        )
-        return ds_train, ds_valid, class_weights, ignore_index, collate_fn
+            return ds_train, ds_valid, class_weights, ignore_index, collate_fn
+        if dataset_class == "vessmap_few":
+            from vessmap_few_dataset import get_dataset_vessmap_few_train
+
+            ds_train, ds_valid, *dataset_props = get_dataset_vessmap_few_train(
+                dataset_path,
+                split_strategy,
+                resize_size=resize_size,
+            )
+            class_weights, ignore_index, collate_fn = dataset_props
+
+            return ds_train, ds_valid, class_weights, ignore_index, collate_fn
 
     def get_model(
         self, model_class, weights_strategy, num_classes, num_channels, **model_params
@@ -193,10 +213,12 @@ class UMambaTrainer(DefaultTrainer):
             logger_plotter,
         )
 
+
 # Main entry point: instantiate and run the trainer.
 if __name__ == "__main__":
     trainer = UMambaTrainer()
     trainer.fit()
+# TODO: check parameters
 
 """
 umamba_train_torchtrainer.py
@@ -206,7 +228,7 @@ model (UMambaEnc from U-Mamba) on the VessMAP dataset.
 
 Usage (example):
     python \
-        /home/fonta42/Desktop/masters-degree/experiments/torch-trainer/umamba_train.py \
+        /home/fonta42/Desktop/masters-degree/experiments/torch-trainer/umamba_train_torchtrainer.py \
         /home/fonta42/Desktop/masters-degree/data/torch-trainer/VessMAP \
         vessmap \
         UMamba \

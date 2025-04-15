@@ -1,5 +1,6 @@
 import torch
 import segmentation_models_pytorch as smp
+
 # Import necessary components from torchtrainer
 from torchtrainer.train import DefaultTrainer
 from torchtrainer.util.train_util import (
@@ -9,8 +10,6 @@ from torchtrainer.util.train_util import (
     WrapDict,
 )
 from torchtrainer.metrics.confusion_metrics import ConfusionMatrixMetrics
-# Import our VessMAP dataset loader
-from torchtrainer.datasets.vessel import get_dataset_vessmap_train
 
 
 class UnetVessTrainer(DefaultTrainer):
@@ -32,19 +31,31 @@ class UnetVessTrainer(DefaultTrainer):
         dataset_path,
         split_strategy,
         resize_size,
-        augmentation_strategy,
+        augmentation_strategy,  # TODO: mudar quando for usar
         **dataset_params,
     ):
-        if dataset_class != "vessmap":
-            raise NotImplementedError(
-                f"Dataset class '{dataset_class}' not supported. Use 'vessmap'."
+        if dataset_class == "vessmap":
+            from torchtrainer.datasets.vessel import get_dataset_vessmap_train
+
+            ds_train, ds_valid, class_weights, ignore_index, collate_fn = (
+                get_dataset_vessmap_train(
+                    dataset_path,
+                    split_strategy=split_strategy,
+                    resize_size=resize_size,  # TODO: mudar quando for usar
+                )
             )
-        ds_train, ds_valid, class_weights, ignore_index, collate_fn = (
-            get_dataset_vessmap_train(
-                dataset_path, split_strategy=split_strategy, resize_size=resize_size
+            return ds_train, ds_valid, class_weights, ignore_index, collate_fn
+        if dataset_class == "vessmap_few":
+            from vessmap_few_dataset import get_dataset_vessmap_few_train
+
+            ds_train, ds_valid, *dataset_props =  get_dataset_vessmap_few_train(
+                dataset_path,
+                split_strategy,
+                resize_size=resize_size,
             )
-        )
-        return ds_train, ds_valid, class_weights, ignore_index, collate_fn
+            class_weights, ignore_index, collate_fn = dataset_props
+
+            return ds_train, ds_valid, class_weights, ignore_index, collate_fn
 
     def get_model(
         self, model_class, weights_strategy, num_classes, num_channels, **model_params
@@ -159,16 +170,17 @@ class UnetVessTrainer(DefaultTrainer):
 if __name__ == "__main__":
     trainer = UnetVessTrainer()
     trainer.fit()
+# TODO: check parameters
 
 """
-unet_train.py
+unet_train_torchtrainer.py
 
 An example training script using the torchtrainer module to train a UNet
 (from segmentation_models_pytorch) on the VessMAP dataset.
 
 Usage (example):
     python \
-        /home/fonta42/Desktop/masters-degree/experiments/torch-trainer/unet_train.py \
+        /home/fonta42/Desktop/masters-degree/experiments/torch-trainer/unet_train_torchtrainer.py \
         /home/fonta42/Desktop/masters-degree/data/torch-trainer/VessMAP \
         vessmap \
         Unet \

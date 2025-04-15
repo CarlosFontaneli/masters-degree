@@ -23,7 +23,7 @@ from torchtrainer.datasets.vessel import get_dataset_vessmap_train
 
 
 # Append MedSAM directory and import SAM model registry
-sys.path.append("../MedSAM")
+sys.path.append("/home/fonta42/Desktop/masters-degree/MedSAM")
 from segment_anything import sam_model_registry
 
 
@@ -76,21 +76,21 @@ class MedSAMAdapter(MedSAM):
     by replicating the single channel.
     This makes the model compatible with datasets that may supply grayscale images.
     """
+
     def forward(self, images, box=None):
         # Check if images have 1 channel and convert to 3 channels if needed.
         if images.shape[1] == 1:
             images = images.repeat(1, 3, 1, 1)
-        
+
         # If no bounding box is provided, generate a full-image bbox.
         if box is None:
             B, _, H, W = images.shape
             # Create a bbox covering the full image and repeat it for each sample in the batch.
             box = torch.tensor([0, 0, W, H], dtype=torch.float32, device=images.device)
             box = box.unsqueeze(0).repeat(B, 1)  # Now the shape is [B, 4]
-        
+
         # Call the parent forward method.
         return super().forward(images, box)
-
 
 
 # -------------------------------
@@ -210,16 +210,28 @@ class MedsamTrainer(DefaultTrainer):
         augmentation_strategy,
         **dataset_params,
     ):
-        if dataset_class != "vessmap":
-            raise NotImplementedError(
-                f"Dataset class '{dataset_class}' not supported. Use 'vessmap'."
+        if dataset_class == "vessmap":
+            from torchtrainer.datasets.vessel import get_dataset_vessmap_train
+
+            ds_train, ds_valid, class_weights, ignore_index, collate_fn = (
+                get_dataset_vessmap_train(
+                    dataset_path,
+                    split_strategy=split_strategy,
+                    resize_size=resize_size,  # TODO: mudar quando for usar
+                )
             )
-        ds_train, ds_valid, class_weights, ignore_index, collate_fn = (
-            get_dataset_vessmap_train(
-                dataset_path, split_strategy=split_strategy, resize_size=resize_size
+            return ds_train, ds_valid, class_weights, ignore_index, collate_fn
+        if dataset_class == "vessmap_few":
+            from vessmap_few_dataset import get_dataset_vessmap_few_train
+
+            ds_train, ds_valid, *dataset_props = get_dataset_vessmap_few_train(
+                dataset_path,
+                split_strategy,
+                resize_size=resize_size,
             )
-        )
-        return ds_train, ds_valid, class_weights, ignore_index, collate_fn
+            class_weights, ignore_index, collate_fn = dataset_props
+
+            return ds_train, ds_valid, class_weights, ignore_index, collate_fn
 
     def get_model(
         self, model_class, weights_strategy, num_classes, num_channels, **model_params
@@ -228,7 +240,7 @@ class MedsamTrainer(DefaultTrainer):
             checkpoint_path = (
                 weights_strategy
                 if weights_strategy is not None
-                else "../MedSAM/work_dir/MedSAM/medsam_vit_b.pth"
+                else "../../MedSAM/work_dir/MedSAM/medsam_vit_b.pth"
             )
             sam_model = sam_model_registry["vit_b"](checkpoint=checkpoint_path)
             # Use the adapter so that the model can generate bounding boxes automatically.
@@ -329,6 +341,7 @@ class MedsamTrainer(DefaultTrainer):
 if __name__ == "__main__":
     trainer = MedsamTrainer()
     trainer.fit()
+# TODO: check parameters
 
 """
 medsam_train_torchtrainer.py
@@ -338,7 +351,7 @@ An example training script using the torchtrainer module to train a MedSAM model
 
 Usage (example):
     python \
-        /home/fonta42/Desktop/masters-degree/experiments/torch-trainer/medsam_train.py \
+        /home/fonta42/Desktop/masters-degree/experiments/torch-trainer/medsam_train_torchtrainer.py \
         /home/fonta42/Desktop/masters-degree/data/torch-trainer/VessMAP \
         vessmap \
         MedSam \
