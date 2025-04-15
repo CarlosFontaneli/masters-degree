@@ -75,3 +75,4 @@ torchtrainer/
 /experiments/torch-trainer/unet_runs
 experiments/u-mamba/models
 experiments/metrics_overview
+experiments/torch-trainer/example_commandline
